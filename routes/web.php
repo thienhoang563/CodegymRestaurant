@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\FoodController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('food', 'FoodController@index()')->name('index');
