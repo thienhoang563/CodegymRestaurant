@@ -15,4 +15,8 @@ use App\Http\Controllers\FoodController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('food', 'FoodController@index()')->name('index');
