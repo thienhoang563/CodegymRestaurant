@@ -15,4 +15,4 @@ use App\Http\Controllers\FoodController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('food', 'FoodController@index()')->name('index');
+Route::get('food', 'FoodController@index')->name('index');
