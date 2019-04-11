@@ -1,6 +1,6 @@
-@extends('admin')
-@section('contentadmin')
-    <h1>Thêm món ăn mới</h1>
+@extends('layouts.app')
+@section('content')
+    <div class=" justify-content-center">
     <form method="post" action="{{ route('admin.foods.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
@@ -44,4 +44,5 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
+    </div>
 @endsection

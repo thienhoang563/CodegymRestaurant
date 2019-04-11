@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Food;
 use App\User;
 use Illuminate\Http\Request;
-use mysql_xdevapi\Session;
+
 
 class HomeController extends Controller
 {
@@ -60,6 +60,17 @@ class HomeController extends Controller
         }
         $food->save();
         return redirect()->route('admin.foods.list');
+    }
+    public function createUser() {
+        return view('admin.users.add');
+    }
+    public function storeUser(Request $request) {
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->save();
+        return redirect()->route('admin.users.list');
     }
 
 }
