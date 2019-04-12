@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Food;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use function Sodium\increment;
 
@@ -74,6 +77,48 @@ class HomeController extends Controller
         $user->save();
         return redirect()->route('admin.users.list');
     }
+    public function editUser($id) {
+        $user = User::findOrFail($id);
+        return view('admin.users.update', compact('user'));
+    }
+    public function updateUser(Request $request, $id){
+        $user = User::findOrFail($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->save();
+        Session::flash('success', 'Update successful');
+        return redirect()->route('admin.users.list');
+    }
+    public function deleteUser($id){
+        $user = User::findOrFail($id);
+        $user->delete();
+        Session::flash('success', 'Đã xóa khách hàng.');
+        return redirect()->route('admin.users.list');
+    }
+    public function showChangePasswordForm(){
+        return view('admin.users.change-password');
+    }
+    public function changePassword(Request $request){
+        if (!(Hash::check($request->get('current-password'),Auth::user()->password)))
+        {
+            return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+        }
+
+        if (strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+            return redirect()->back()->with("error", "New Password cannot be same as your current password. Please choose a different password.");
+        }
+
+        $validatedData = $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new-password'));
+        $user->save();
+        return redirect()->back()->with("success","Password changed successfully !");
+    }
+
     public function editFood($id) {
         $food = Food::findOrFail($id);
         return view('admin.foods.edit', compact('food'));
