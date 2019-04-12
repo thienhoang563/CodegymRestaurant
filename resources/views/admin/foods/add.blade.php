@@ -5,30 +5,44 @@
         @csrf
         <div class="form-group">
             <label for="name">Tên món ăn</label>
-            <input type="text" class="form-control" name="name" placeholder="Enter name">
+            <label>
+                <input type="text" class="form-control" name="name" placeholder="Enter name">
+            </label>
         </div>
         <div class="form-group">
             <label for="description">Mô tả</label>
-            <input type="text" class="form-control" name="description">
+            <label>
+                <input type="text" class="form-control" name="description">
+            </label>
         </div>
         <div class="form-group">
             <label for="type">Loại món ăn</label>
-            <input type="text" class="form-control" name="type">
+            <label>
+                <input type="text" class="form-control" name="type">
+            </label>
         </div>
         <div class="form-group">
             <label for="cooker">Người làm</label>
-            <input type="text" class="form-control" name="cooker">
+            <label>
+                <input type="text" class="form-control" name="cooker">
+            </label>
             <div class="form-group">
                 <label for="price">Giá</label>
-                <input type="text" class="form-control" name="price">
+                <label>
+                    <input type="text" class="form-control" name="price">
+                </label>
             </div>
             <div class="form-group">
                 <label for="rating">Đánh giá</label>
-                <input type="text" class="form-control" name="rating">
+                <label>
+                    <input type="text" class="form-control" name="rating">
+                </label>
             </div>
             <div class="form-group">
                 <label for="status">Tình trạng</label>
-                <input type="text" class="form-control" name="status">
+                <label>
+                    <input type="text" class="form-control" name="status">
+                </label>
             </div>
             <div class="form-group">
                 <label for="inputFileName">Ten File</label>
