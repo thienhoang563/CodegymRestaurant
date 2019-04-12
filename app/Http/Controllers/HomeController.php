@@ -6,6 +6,7 @@ use App\Food;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use function Sodium\increment;
 
 
 class HomeController extends Controller
@@ -34,7 +35,7 @@ class HomeController extends Controller
         return view('admin.users.list', compact('users'));
     }
     public function getAllFood() {
-        $foods = Food::all();
+        $foods = Food::paginate(5);
         return view('admin.foods.list', compact('foods'));
     }
     public function createFood() {
@@ -53,7 +54,7 @@ class HomeController extends Controller
         if (!$request->hasFile('inputFile')){
             $food->food_picture_url = $file;
         }else{
-            $fileName = $request->inputFileName;
+            $fileName = $request->inputFile;
             $fileExtension = $file->getClientOriginalExtension();
             $newFileName = "$fileName.$fileExtension";
             $request->file('inputFile')->storeAs('public/images', $newFileName);
@@ -72,6 +73,37 @@ class HomeController extends Controller
         $user->password = Hash::make($request->input('password')); //them hash
         $user->save();
         return redirect()->route('admin.users.list');
+    }
+    public function editFood($id) {
+        $food = Food::findOrFail($id);
+        return view('admin.foods.edit', compact('food'));
+    }
+    public function updateFood(Request $request, $id) {
+        $food = Food::findOrFail($id);
+        $food->food_name = $request->input('name');
+        $food->food_description = $request->input('description');
+        $food->food_type = $request->input('type');
+        $food-> food_cook = $request->input('cooker');
+        $food-> food_price = $request->input('price');
+        $food->food_rating = $request-> input('rating');
+        $food->food_status = $request->input('status');
+        $file = $request->inputFile;
+        if (!$request->hasFile('inputFile')){
+            $food->food_picture_url = $file;
+        }else{
+            $fileName = $file->getClientOriginalName();
+//            $fileExtension = $file->getClientOriginalExtension();
+            $newFileName = $fileName;
+            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $food->food_picture_url = $newFileName;
+        }
+        $food->save();
+        return redirect()->route('admin.foods.list');
+    }
+    public function destroyFood($id) {
+        $food = Food::findOrFail($id);
+        $food->delete();
+        return redirect()->route('admin.foods.list');
     }
 
 }
