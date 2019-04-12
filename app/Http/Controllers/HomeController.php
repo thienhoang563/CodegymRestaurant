@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Food;
 use App\User;
 use Illuminate\Http\Request;
-
 use function Sodium\increment;
 use Illuminate\Support\Facades\Hash;
 
