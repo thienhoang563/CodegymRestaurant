@@ -25,14 +25,9 @@
                     <th scope="row">{{ ++$key }}</th>
                     <td>{{ $user['name'] }}</td>
                     <td>{{$user['email']}}</td>
-                    <td><a class="btn btn-dark" href="{{route('admin.users.edit', $user->id)}}">
-                            Cập nhật thông tin
-                        </a>
-                        <a class="btn btn-dark" href="{{route('admin.users.password',$user->id)}}">
-                            Đổi mật khẩu
-                        </a>
-                    <a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-danger"
-                           onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a></td>
+                    <td><a href="#">sửa</a></td>
+                    <td><a href="#" class="text-danger"
+                           onclick="return confirm('Bạn chắc chắn muốn xóa?')">xóa</a></td>
                 </tr>
             @endforeach
         @endif

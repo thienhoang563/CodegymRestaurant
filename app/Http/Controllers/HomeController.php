@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Food;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 
 
 class HomeController extends Controller
@@ -73,36 +71,6 @@ class HomeController extends Controller
         $user->password = $request->input('password');
         $user->save();
         return redirect()->route('admin.users.list');
-    }
-    public function editUser($id) {
-        $user = User::findOrFail($id);
-        return view('admin.users.update', compact('user'));
-    }
-    public function updateUser(Request $request, $id){
-        $user = User::findOrFail($id);
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->save();
-        Session::flash('success', 'Update successful');
-        return redirect()->route('admin.users.list');
-    }
-    public function deleteUser($id){
-        $user = User::findOrFail($id);
-        $user->delete();
-        Session::flash('success', 'Đã xóa khách hàng.');
-        return redirect()->route('admin.users.list');
-    }
-    public function changePassword($id) {
-        $user = User::findOrFail($id);
-        return view('admin.users.change-password', compact('user'));
-    }
-    public function changePasswordDetail(Request $request, $id) {
-        $user = User::findOrFail($id);
-        $user->password = Hash::make($request->password);
-        $user->save();
-        Session::flash('success', 'Đổi mật khẩu thành công.');
-        return redirect()->route('admin.users.list');
-
     }
 
 }

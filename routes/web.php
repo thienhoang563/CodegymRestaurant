@@ -26,8 +26,4 @@ Route::post('/admin/users/add', 'HomeController@storeUser')->name('admin.users.s
 Route::get('/admin/foods/list', 'HomeController@getAllFood')->name('admin.foods.list');
 Route::get('/admin/foods/add', 'HomeController@createFood')->name('admin.foods.add');
 Route::post('/admin/foods/add', 'HomeController@storeFood')->name('admin.foods.store');
-Route::get('/admin/users/{id}/edit', 'HomeController@editUser')->name('admin.users.edit');
-Route::post('/admin/users/{id}/update', 'HomeController@updateUser')->name('admin.users.update');
-Route::get('/admin/users/{id}/delete', 'HomeController@deleteUser')->name('admin.users.delete');
-Route::get('/admin/users/{id}/password', 'HomeController@changePassword')->name('admin.users.password');
-Route::post('/admin/users/{id}/change-password', 'HomeController@changePasswordDetail')->name('admin.users.change-password');
+
