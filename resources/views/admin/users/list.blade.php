@@ -4,6 +4,12 @@
     <div class="container">
         <h1>Danh Sách Khách Hàng</h1>
     </div>
+    @if (Session::has('success'))
+        <p class="text-success">
+            <i class="fa fa-check" aria-hidden="true"></i>
+            {{ Session::get('success') }}
+        </p>
+    @endif
     <table class="table table-striped">
         <thead>
         <tr>
@@ -28,10 +34,10 @@
                     <td><a class="btn btn-dark" href="{{route('admin.users.edit', $user->id)}}">
                             Cập nhật thông tin
                         </a>
-                        <a class="btn btn-dark" href="{{route('admin.users.password',$user->id)}}">
+                        <a class="btn btn-dark" href="{{route('admin.users.form')}}">
                             Đổi mật khẩu
                         </a>
-                    <a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-danger"
+                    <a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-dark"
                            onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a></td>
                 </tr>
             @endforeach

@@ -1,36 +1,66 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-</head>
-<body>
-<div class="container">
-    <h4>Đổi mật khẩu</h4>
-    <div class="row">
-        <form action="{{route('admin.users.change-password',$user->id)}}" method="post" enctype="multipart/form-data"></form>
-        <div class="col-sm-4">
-            <label>Current Password</label>
-            <div class="form-group">
-                <input type="password" id="password" value="{{$user['password']}}" class="form-control" placeholder="Current Password">
+@extends('layouts.app')
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-4">
+                    <div class="card-header text-center">Đổi mật khẩu</div>
+                    <div class="card-body">
+                        @if(session('error'))
+                            <div class="alert alert-danger">
+                                {{session('error')}}
+                            </div>
+                        @endif
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{session('success')}}
+                            </div>
+                        @endif
+                        <form action="" method="post">
+                            @csrf
+                            <div class="form-group{{$errors->has('current-password') ? 'has-error' : ''}}">
+                                <div class="col-md-12">
+                                    <label for="new-password">Current Password</label>
+                                    <input type="password" id="current-password" class="form-control"
+                                           name="current-password" required>
+
+                                    @if($errors->has('current-password'))
+                                        <span class="help-block">
+                                            <strong>{{$errors->first('current-password')}}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group{{$errors->has('new-password') ? 'has-error' : ''}}">
+                                <div class="col-md-12">
+                                    <label for="new-password">New Password</label>
+                                    <input type="password" id="new-password" class="form-control" name="new-password"
+                                           required>
+
+                                    @if($errors->has('new-password'))
+                                        <span class="help-block">
+                                                <strong>{{$errors->first('new-password')}}</strong>
+                                            </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-sm-12">
+                                    <label for="new-password-confirm">Confirm New Password</label>
+
+                                    <input type="password" id="new-password-confirm" class="form-control"
+                                           name="new-password_confirmation" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">Change Password</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
             </div>
-            <label>New Password</label>
-            <div class="form-group">
-                <input type="password" id="new-password" class="form-control" placeholder="New Password">
-            </div>
-            <label>Confirm Password</label>
-            <div class="form-group">
-                <input type="password" id="confirm-password" class="form-control" placeholder="Confirm Password">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
-</div>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</body>
-</html>
+@endsection
