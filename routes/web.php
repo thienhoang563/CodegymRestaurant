@@ -31,3 +31,7 @@ Route::post('/admin/users/{id}/update', 'HomeController@updateUser')->name('admi
 Route::get('/admin/users/{id}/delete', 'HomeController@deleteUser')->name('admin.users.delete');
 Route::get('/admin/users/changePassword', 'HomeController@showChangePasswordForm')->name('admin.users.form');
 Route::post('/admin/users/changePassword', 'HomeController@changePassword')->name('admin.users.change-password');
+Route::get('/admin/foods/{id}/update', 'HomeController@editFood')->name('admin.foods.edit');
+Route::post('/admin/foods/{id}/update', 'HomeController@updateFood')->name('admin.foods.update');
+Route::get('/admin/foods/{id}/destroy', 'HomeController@destroyFood')->name('admin.foods.destroy');
+Route::get('/admin/foods/search', 'HomeController@searchFood')->name('admin.foods.search');

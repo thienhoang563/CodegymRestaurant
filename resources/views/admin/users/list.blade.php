@@ -10,12 +10,16 @@
             {{ Session::get('success') }}
         </p>
     @endif
+@extends('layouts.app')
+@section('content')
+    <h1>Danh Sách Khách Hàng</h1>
     <table class="table table-striped">
         <thead>
         <tr>
             <th scope="col">STT</th>
             <th scope="col">Tên khách hàng</th>
             <th scope="col">Email</th>
+            <th></th>
             <th></th>
             <th></th>
         </tr>
@@ -39,6 +43,15 @@
                         </a>
                     <a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-dark"
                            onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a></td>
+                    <td>
+                        <a class="btn btn-info" href="#">Cap nhat thong tin</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success" href="#">Thay doi mat khau</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="#">Xóa</a>
+                    </td>
                 </tr>
             @endforeach
         @endif
