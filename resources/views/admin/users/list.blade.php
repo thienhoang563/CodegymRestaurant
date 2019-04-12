@@ -4,22 +4,12 @@
     <div class="container">
         <h1>Danh Sách Khách Hàng</h1>
     </div>
-    @if (Session::has('success'))
-        <p class="text-success">
-            <i class="fa fa-check" aria-hidden="true"></i>
-            {{ Session::get('success') }}
-        </p>
-    @endif
-@extends('layouts.app')
-@section('content')
-    <h1>Danh Sách Khách Hàng</h1>
     <table class="table table-striped">
         <thead>
         <tr>
             <th scope="col">STT</th>
             <th scope="col">Tên khách hàng</th>
             <th scope="col">Email</th>
-            <th></th>
             <th></th>
             <th></th>
         </tr>
@@ -35,23 +25,9 @@
                     <th scope="row">{{ ++$key }}</th>
                     <td>{{ $user['name'] }}</td>
                     <td>{{$user['email']}}</td>
-                    <td><a class="btn btn-dark" href="{{route('admin.users.edit', $user->id)}}">
-                            Cập nhật thông tin
-                        </a>
-                        <a class="btn btn-dark" href="{{route('admin.users.form')}}">
-                            Đổi mật khẩu
-                        </a>
-                    <a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-dark"
-                           onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a></td>
-                    <td>
-                        <a class="btn btn-info" href="#">Cap nhat thong tin</a>
-                    </td>
-                    <td>
-                        <a class="btn btn-success" href="#">Thay doi mat khau</a>
-                    </td>
-                    <td>
-                        <a class="btn btn-danger" href="#">Xóa</a>
-                    </td>
+                    <td><a href="#">sửa</a></td>
+                    <td><a href="#" class="text-danger"
+                           onclick="return confirm('Bạn chắc chắn muốn xóa?')">xóa</a></td>
                 </tr>
             @endforeach
         @endif
