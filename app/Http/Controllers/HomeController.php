@@ -91,7 +91,6 @@ class HomeController extends Controller
             $food->food_picture_url = $file;
         }else{
             $fileName = $file->getClientOriginalName();
-//            $fileExtension = $file->getClientOriginalExtension();
             $newFileName = $fileName;
             $request->file('inputFile')->storeAs('public/images', $newFileName);
             $food->food_picture_url = $newFileName;
@@ -104,5 +103,4 @@ class HomeController extends Controller
         $food->delete();
         return redirect()->route('admin.foods.list');
     }
-
 }
