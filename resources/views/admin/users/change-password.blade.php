@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-4">
-                    <div class="card-header text-center">Đổi mật khẩu</div>
+                    <h1><div class="card-header text-center">Đổi mật khẩu</div></h1>
                     <div class="card-body">
                         @if(session('error'))
                             <div class="alert alert-danger">

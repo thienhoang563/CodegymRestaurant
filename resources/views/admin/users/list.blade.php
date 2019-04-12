@@ -1,6 +1,6 @@
 
-@extends('admin')
-@section('contentadmin')
+@extends('layouts.app')
+@section('content')
     <div class="container">
         <h1>Danh Sách Khách Hàng</h1>
     </div>
@@ -17,7 +17,8 @@
             <th scope="col">Tên khách hàng</th>
             <th scope="col">Email</th>
             <th></th>
-            <th></th>
+
+
         </tr>
         </thead>
         <tbody>
@@ -31,14 +32,17 @@
                     <th scope="row">{{ ++$key }}</th>
                     <td>{{ $user['name'] }}</td>
                     <td>{{$user['email']}}</td>
-                    <td><a class="btn btn-dark" href="{{route('admin.users.edit', $user->id)}}">
+
+                    <td><a class="btn btn-info" href="{{route('admin.users.edit', $user->id)}}">
                             Cập nhật thông tin
                         </a>
-                        <a class="btn btn-dark" href="{{route('admin.users.form')}}">
+                        <a class="btn btn-success" href="{{route('admin.users.form')}}">
                             Đổi mật khẩu
                         </a>
-                    <a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-dark"
-                           onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a></td>
+                        <a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-danger"
+                           onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa
+                        </a>
+                    </td>
                 </tr>
             @endforeach
         @endif
