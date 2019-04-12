@@ -4,12 +4,6 @@
     <div class="container">
         <h1>Danh Sách Khách Hàng</h1>
     </div>
-    @if (Session::has('success'))
-        <p class="text-success">
-            <i class="fa fa-check" aria-hidden="true"></i>
-            {{ Session::get('success') }}
-        </p>
-    @endif
     <table class="table table-striped">
         <thead>
         <tr>
@@ -17,8 +11,6 @@
             <th scope="col">Tên khách hàng</th>
             <th scope="col">Email</th>
             <th></th>
-
-
         </tr>
         </thead>
         <tbody>
@@ -32,7 +24,6 @@
                     <th scope="row">{{ ++$key }}</th>
                     <td>{{ $user['name'] }}</td>
                     <td>{{$user['email']}}</td>
-
                     <td><a class="btn btn-info" href="{{route('admin.users.edit', $user->id)}}">
                             Cập nhật thông tin
                         </a>

@@ -15,8 +15,7 @@
             <label for="name">Email</label>
             <input type="email" class="form-control" name="email" value="{{$user['email']}}" placeholder="Enter Email">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
     </form>
     </div>
 </div>
