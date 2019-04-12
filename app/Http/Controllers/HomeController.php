@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Food;
 use App\User;
 use Illuminate\Http\Request;
+
 use function Sodium\increment;
+use Illuminate\Support\Facades\Hash;
 
 
 class HomeController extends Controller
@@ -69,7 +71,7 @@ class HomeController extends Controller
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = Hash::make($request->input('password')); //them hash
         $user->save();
         return redirect()->route('admin.users.list');
     }
