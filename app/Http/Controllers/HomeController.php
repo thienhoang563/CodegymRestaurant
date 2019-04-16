@@ -114,6 +114,11 @@ class HomeController extends Controller
 
 
     public function updateUser(Request $request, $id){
+
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
