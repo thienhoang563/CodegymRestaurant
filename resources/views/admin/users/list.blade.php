@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
     <div class="container">
@@ -9,8 +10,6 @@
             <th scope="col">STT</th>
             <th scope="col">Tên khách hàng</th>
             <th scope="col">Email</th>
-            <th></th>
-            <th></th>
             <th></th>
         </tr>
         </thead>
@@ -25,13 +24,14 @@
                     <th scope="row">{{ ++$key }}</th>
                     <td>{{ $user['name'] }}</td>
                     <td>{{$user['email']}}</td>
-                    <td><a class="btn btn-info" href="{{route('admin.users.edit', $user->id)}}">
-                            Cập nhật thông tin
-                        </a>
-                    <td><a class="btn btn-success" href="{{route('admin.users.form')}}">
-                            Đổi mật khẩu
-                        </a></td>
-                    <td><a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-danger"
+                    <td>
+{{--                        <a class="btn btn-info" href="{{route('admin.users.edit', $user->id)}}">--}}
+{{--                            Cập nhật thông tin--}}
+{{--                        </a>--}}
+{{--                        <a class="btn btn-success" href="{{route('admin.users.form')}}">--}}
+{{--                            Đổi mật khẩu--}}
+{{--                        </a>--}}
+                        <a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-danger"
                            onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa
                         </a>
                     </td>
