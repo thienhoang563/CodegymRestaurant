@@ -55,9 +55,12 @@ class HomeController extends Controller
         if (!$request->hasFile('inputFile')){
             $food->food_picture_url = $file;
         }else{
-            $fileName = $request->inputFileName;
-            $fileExtension = $file->getClientOriginalExtension();
-            $newFileName = "$fileName.$fileExtension";
+            $fileName=$file->getClientOriginalName();
+            $newFileName = $fileName;
+
+//            $fileName = $request->inputFileName;
+//            $fileExtension = $file->getClientOriginalExtension();
+//            $newFileName = "$fileName.$fileExtension";
             $request->file('inputFile')->storeAs('public/images', $newFileName);
             $food->food_picture_url = $newFileName;
         }

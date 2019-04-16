@@ -24,12 +24,13 @@
                     <th scope="row">{{ ++$key }}</th>
                     <td>{{ $user['name'] }}</td>
                     <td>{{$user['email']}}</td>
-                    <td><a class="btn btn-info" href="{{route('admin.users.edit', $user->id)}}">
-                            Cập nhật thông tin
-                        </a>
-                        <a class="btn btn-success" href="{{route('admin.users.form')}}">
-                            Đổi mật khẩu
-                        </a>
+                    <td>
+{{--                        <a class="btn btn-info" href="{{route('admin.users.edit', $user->id)}}">--}}
+{{--                            Cập nhật thông tin--}}
+{{--                        </a>--}}
+{{--                        <a class="btn btn-success" href="{{route('admin.users.form')}}">--}}
+{{--                            Đổi mật khẩu--}}
+{{--                        </a>--}}
                         <a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-danger"
                            onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa
                         </a>

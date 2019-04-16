@@ -42,9 +42,9 @@
                                 {{'het'}}
                             @endif
                         </td>
-                        <td><a class="btn btn-info" href="{{route('admin.foods.edit',$food['id'])}}">sửa</a></td>
-                        <td><a href="{{route('admin.foods.destroy', $food['id'])}}" class="btn btn-danger"
-                               onclick="return confirm('Bạn chắc chắn muốn xóa?')">xóa</a></td>
+{{--                        <td><a class="btn btn-info" href="{{route('admin.foods.edit',$food['id'])}}">sửa</a></td>--}}
+{{--                        <td><a href="{{route('admin.foods.destroy', $food['id'])}}" class="btn btn-danger"--}}
+{{--                               onclick="return confirm('Bạn chắc chắn muốn xóa?')">xóa</a></td>--}}
                     </tr>
                 @endforeach
             @endif
