@@ -4,7 +4,7 @@
 
 <div class="row justify-content-center">
     <div class="row">
-    <form action="{{route('admin.users.update', $user->id)}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('admin.users.update', $user['id'])}}" method="post" enctype="multipart/form-data">
         @csrf
         <h2>CẬP NHẬT THÔNG TIN</h2>
         <div class="form-group">
