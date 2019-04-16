@@ -55,12 +55,8 @@ class HomeController extends Controller
         if (!$request->hasFile('inputFile')){
             $food->food_picture_url = $file;
         }else{
-            $fileName=$file->getClientOriginalName();
+            $fileName = $file->getClientOriginalName();
             $newFileName = $fileName;
-
-//            $fileName = $request->inputFileName;
-//            $fileExtension = $file->getClientOriginalExtension();
-//            $newFileName = "$fileName.$fileExtension";
             $request->file('inputFile')->storeAs('public/images', $newFileName);
             $food->food_picture_url = $newFileName;
         }
@@ -82,6 +78,41 @@ class HomeController extends Controller
         $user = User::findOrFail($id);
         return view('admin.users.update', compact('user'));
     }
+    public function editFood($id) {
+        $food = Food::findOrFail($id);
+        return view('admin.foods.edit', compact('food'));
+    }
+
+
+    public function updateFood(Request $request, $id)
+    {
+        $food = Food::findOrFail($id);
+        $food->food_name = $request->input('name');
+        $food->food_description = $request->input('description');
+        $food->food_type = $request->input('type');
+        $food->food_cook = $request->input('cooker');
+        $food->food_price = $request->input('price');
+        $food->food_rating = $request->input('rating');
+        $food->food_status = $request->input('status');
+        $file = $request->inputFile;
+        if (!$request->hasFile('inputFile')) {
+            $food->food_picture_url = $file;
+        } else {
+            $fileName = $file->getClientOriginalName();
+            $newFileName = $fileName;
+            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $food->food_picture_url = $newFileName;
+        }
+        $food->save();
+        return redirect()->route('admin.foods.list');
+    }
+    public function destroyFood($id) {
+        $food = Food::finOrFail($id);
+        $food->delete();
+        return redirect()->route('admin.foods.list');
+    }
+
+
     public function updateUser(Request $request, $id){
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
@@ -119,5 +150,4 @@ class HomeController extends Controller
         $user->save();
         return redirect()->back()->with("success","Password changed successfully !");
     }
-
 }
