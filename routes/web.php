@@ -18,12 +18,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index')->name('home');
 Route::get('food', 'FoodController@index()')->name('index');
-Route::get('/admin/users/list', 'HomeController@getAllUser')->name('admin.users.list');
-Route::get('/admin/users/add', 'HomeController@createUser')->name('admin.users.add');
-Route::post('/admin/users/add', 'HomeController@storeUser')->name('admin.users.store');
-Route::get('/admin/foods/list', 'HomeController@getAllFood')->name('admin.foods.list');
-Route::get('/admin/foods/add', 'HomeController@createFood')->name('admin.foods.add');
-Route::post('/admin/foods/add', 'HomeController@storeFood')->name('admin.foods.store');
+Route::get('/admin/users/list', 'AdminController@getAllUser')->name('admin.users.list');
+Route::get('/admin/users/add', 'AdminController@createUser')->name('admin.users.add');
+Route::post('/admin/users/add', 'AdminController@storeUser')->name('admin.users.store');
+Route::get('/admin/foods/list', 'AdminController@getAllFood')->name('admin.foods.list');
+Route::get('/admin/foods/add', 'AdminController@createFood')->name('admin.foods.add');
+Route::post('/admin/foods/add', 'AdminController@storeFood')->name('admin.foods.store');
 
