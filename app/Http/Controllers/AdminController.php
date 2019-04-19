@@ -54,7 +54,17 @@ class AdminController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = $request->input('password');
+        $file = $request->input('inputFile');
+        if (!$request->hasFile('inputFile')) {
+            $user->image = $file;
+        } else {
+            $fileName = $file->getClientOriginalName();
+            $newFileName = $fileName;
+            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $user->image = $newFileName;
+        }
         $user->save();
+        Session::flash('success', 'Them moi nguoi dung thanh cong');
         return redirect()->route('admin.users.list');
     }
     public function storeAdvertisement(Request $request) {
@@ -88,6 +98,7 @@ class AdminController extends Controller
             $food->food_picture_url = $newFileName;
         }
         $food->save();
+        Session::flash('Success', 'Add Food Success');
         return redirect()->route('admin.foods.list');
     }
     public function editUser($id) {
@@ -120,11 +131,13 @@ class AdminController extends Controller
             $food->food_picture_url = $newFileName;
         }
         $food->save();
+        Session::flash('success', 'Cap nhat mon an thanh cong');
         return redirect()->route('admin.foods.list');
     }
     public function destroyFood($id) {
-        $food = Food::finOrFail($id);
+        $food = Food::findOrFail($id);
         $food->delete();
+        Session::flash('success', 'Xoa mon an thanh cong');
         return redirect()->route('admin.foods.list');
     }
 
@@ -138,8 +151,18 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $file = $request->inputFile;
+        if (!$request->hasFile('inputFile')) {
+            $user->image = $file;
+        } else {
+            $fileName = $file->getClientOriginalName();
+            $newFileName = $fileName;
+            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $user->image = $newFileName;
+        }
+
         $user->save();
-        Session::flash('success', 'Update successful');
+        Session::flash('success', 'Cap nhat thanh cong');
         return redirect()->route('admin.users.list');
     }
 

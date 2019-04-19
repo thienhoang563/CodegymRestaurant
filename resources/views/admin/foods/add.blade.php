@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h1>Thêm mới món ăn</h1>
+        <h1 class="justify-content-center row col-md-12">Thêm mới món ăn</h1>
         <hr>
-        <div class="row">
+        <div class="justify-content-center row">
             <div class="col-md-7">
                 <form method="post" action="{{ route('admin.foods.store') }}" enctype="multipart/form-data">
                     @csrf
