@@ -1,6 +1,6 @@
 
 @extends('layouts.app')
-@section('content')
+@section('page-content')
     <div class="container">
         <h1>Danh Sách Khách Hàng</h1>
     </div>
@@ -35,7 +35,6 @@
                     <td><img src="{{asset('storage/images/'.$user['image'])}}" alt="" width="100px"
                              height="100px"></td>
                     <td>
-
                         <a href="{{route('admin.users.delete', $user->id)}}" class="btn btn-danger"
                            onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa
                         </a>

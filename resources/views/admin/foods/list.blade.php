@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('content')
+@section('page-content')
     <div class="row">
-        <h1>Danh sách món ăn</h1>
+        <h1 style="color: red;">Danh sách món ăn</h1>
         <table class="table table-striped">
             <thead>
             <tr>

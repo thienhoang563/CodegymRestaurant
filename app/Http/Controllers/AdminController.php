@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Food;
+use App\Http\Requests\FormExampleRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('admin.dashboard');
     }
     public function getAllUser() {
         $users = User::all();
@@ -43,6 +44,12 @@ class AdminController extends Controller
         return view('admin.users.add');
     }
     public function storeUser(Request $request) {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -135,10 +142,10 @@ class AdminController extends Controller
     }
 
 
-    public function updateUser(Request $request, $id){
+    public function updateUser(FormExampleRequest $request, $id){
 
         $validatedData = $request->validate([
-            'name' => 'required',
+            'name' => 'required|min:2',
             'email' => 'required',
         ]);
         $user = User::findOrFail($id);
@@ -171,12 +178,15 @@ class AdminController extends Controller
         if (strcmp($request->get('current-password'), $request->get('new-password')) == 0){
             return redirect()->back()->with("error", "New Password cannot be same as your current password. Please choose a different password.");
         }
+        if (strcmp($request->get('new-password-confirm'), $request->get('new-password')) !== 0){
+            return redirect()->back()->with("error", "New Password cannot be same as your confirm password. Please try again.");
+        }
 
-        $validatedData = $request->validate([
-            'current-password' => 'required',
-            'new-password' => 'required|string|min:6|confirmed',
-        ]);
-
+//        $validatedData = $request->validate([
+//            'current-password' => 'required',
+//            'new-password' => 'required|string|min:6|confirmed',
+//            'new-password-confirm' => 'required|string|min:6|confirmed'
+//        ]);
         $user = Auth::user();
         $user->password = bcrypt($request->get('new-password'));
         $user->save();
