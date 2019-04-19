@@ -17,9 +17,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/admin', 'AdminController@index')->name('home');
 Route::get('food', 'FoodController@index()')->name('index');
+
 
 Route::get('/admin/users/list', 'AdminController@getAllUser')->name('admin.users.list');
 Route::get('/admin/users/add', 'AdminController@createUser')->name('admin.users.add');
