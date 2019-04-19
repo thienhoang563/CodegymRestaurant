@@ -41,12 +41,17 @@
                 @endif
 
             </div>
-            <div class="form-group row">
+            <div class="form-group{{$errors->has('new-password-confirm') ? 'has-error' : ''}} row">
                 <label class="col-sm-2 col-form-label" for="new-password-confirm">Confirm New Password</label>
                 <div class="col-sm-6">
                     <input type="password" id="new-password-confirm" class="form-control"
-                           name="new-password_confirmation" required>
+                           name="new-password-confirm" required>
                 </div>
+                @if($errors->has('new-password-confirm'))
+                    <span class="help-block">
+                                                <strong>{{$errors->first('new-password-confirm')}}</strong>
+                                            </span>
+                @endif
             </div>
 
             <div class="form-group row">
