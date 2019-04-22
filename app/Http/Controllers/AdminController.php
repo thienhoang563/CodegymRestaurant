@@ -44,7 +44,17 @@ class AdminController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = $request->input('password');
+        $file = $request->input('inputFile');
+        if (!$request->hasFile('inputFile')) {
+            $user->image = $file;
+        } else {
+            $fileName = $file->getClientOriginalName();
+            $newFileName = $fileName;
+            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $user->image = $newFileName;
+        }
         $user->save();
+        Session::flash('success', 'Them moi nguoi dung thanh cong');
         return redirect()->route('admin.users.list');
     }
 
@@ -64,8 +74,18 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $file = $request->inputFile;
+        if (!$request->hasFile('inputFile')) {
+            $user->image = $file;
+        } else {
+            $fileName = $file->getClientOriginalName();
+            $newFileName = $fileName;
+            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $user->image = $newFileName;
+        }
+
         $user->save();
-        Session::flash('success', 'Update successful');
+        Session::flash('success', 'Cap nhat thanh cong');
         return redirect()->route('admin.users.list');
     }
 
@@ -95,5 +115,4 @@ class AdminController extends Controller
         $user->save();
         return redirect()->back()->with("success","Password changed successfully !");
     }
-
 }
