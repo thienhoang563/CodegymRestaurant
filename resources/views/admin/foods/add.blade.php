@@ -1,56 +1,71 @@
 @extends('layouts.app')
-@section('content')
-    <div class="container">
-        <h1 class="justify-content-center row col-md-12">Thêm mới món ăn</h1>
+@section('page-content')
+    <div class="col-12 col-md-12">
+        <h1>Add new food</h1>
         <hr>
-        <div class="justify-content-center row">
-            <div class="col-md-7">
-                <form method="post" action="{{ route('admin.foods.store') }}" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group">
-                        <label for="name">Tên món ăn</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Mô tả</label>
-                        <input type="text" class="form-control" name="description" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="type">Loại món ăn</label>
-                        <input type="text" class="form-control" name="type" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cooker">Người làm</label>
-                        <input type="text" class="form-control" name="cooker" required>
-                        <div class="form-group">
-                            <label for="price">Giá</label>
-                            <input type="text" class="form-control" name="price" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="rating">Đánh giá</label>
-                            <input type="text" class="form-control" name="rating" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="status">Tình trạng</label>
-                            <input type="text" class="form-control" name="status" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputFileName">Ten File</label>
-                            <input type="text"
-                                   class="form-control"
-                                   id="inputFileName"
-                                   name="inputFileName">
-                            <input type="file"
-                                   class="form-control-file"
-                                   id="inputFile"
-                                   name="inputFile">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="{{route('home')}}" class="btn btn-dark">Back</a>
-
-                    </div>
-                </form>
+        <form method="post" action="{{ route('admin.foods.store') }}" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="name">Food name:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="food_name" placeholder="Enter name">
+                    @if($errors->has('food_name'))
+                        <strong>{{$errors->first('food_name')}}</strong>
+                    @endif
+                </div>
             </div>
-        </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="name">Food type:</label>
+                <div class="col-sm-2">
+                    <select class="form-control" name="food_type">
+                        <option value="{{\App\Http\Controllers\FoodType::RAU}}">Rau</option>
+                        <option value="{{\App\Http\Controllers\FoodType::THIT}}">Thịt</option>
+                        <option>Do uong</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="name">Description:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="food_description">
+                    @if($errors->has('food_description'))
+                        <span class="alert alert-danger">
+                                            <strong>{{$errors->first('food_description')}}</strong>
+                                        </span>
+                    @endif
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Food Image</label>
+                <div class="col-sm-8">
+                    <input type="file" class="form-control" name="food_image">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="name">Price:</label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" name="food_price">
+                    @if($errors->has('food_price'))
+                        <span class="alert alert-danger">
+                                            <strong>{{$errors->first('food_price')}}</strong>
+                                        </span>
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="name">Rating:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="food_rating">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary mb-2">Add</button>
+                    <a href="{{route('admin.foods.list')}}" class="btn btn-dark mb-2">Back</a>
+                </div>
+            </div>
+        </form>
     </div>
 @endsection

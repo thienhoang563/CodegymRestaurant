@@ -1,64 +1,74 @@
 @extends('layouts.app')
-@section('content')
-    <div class="container">
-        <h1>Thay đổi thông tin món ăn</h1>
+@section('page-content')
+    <div class="col-12 col-md-12">
+        <h1>Edit Food</h1>
         <hr>
-        <div class="row">
-            <div class="col-md-7">
-                <form method="post" action="{{route('admin.foods.update', $food['id'])}}" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group">
-                        <label for="name">Tên món ăn</label>
-                        <input type="text" class="form-control" name="name" value="{{$food['food_name'] }}"
-                               placeholder="Enter name" required>
-                        @if($errors->has('food_name'))
-                            <span class="help-block">
+        <form method="post" action="{{route('admin.foods.update', $food->food_id)}}" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="name">Food name:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="food_name" value="{{$food->food_name }}"
+                           placeholder="Enter name">
+                    @if($errors->has('food_name'))
+                        <span class="help-block">
                                             <strong>{{$errors->first('food_name')}}</strong>
                                         </span>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Mô tả</label>
-                        <input type="text" class="form-control" value="{{$food['food_description']}}"
-                               name="description" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="type">Loại món ăn</label>
-                        <input type="text" class="form-control" value="{{$food['food_type']}}" name="type" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cooker">Người làm</label>
-                        <input type="text" class="form-control" value="{{$food['food_cook']}}" name="cooker" required>
-                        <div class="form-group">
-                            <label for="price">Giá</label>
-                            <input type="text" class="form-control" value="{{$food['food_price']}}" name="price">
-                        </div>
-                        <div class="form-group">
-                            <label for="rating">Đánh giá</label>
-                            <input type="text" class="form-control" value="{{$food['food_rating']}}" name="rating" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="status">Tình trạng</label>
-                            <input type="text" class="form-control" value="{{$food['food_status']}}" name="status" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputFileName">Ten File</label>
-                            <input type="text"
-                                   class="form-control"
-                                   id="inputFileName"
-                                   name="inputFileName">
-                            <input type="file"
-                                   class="form-control-file"
-                                   id="inputFile"
-                                   value="{{$food['food_picture_url']}}"
-                                   name="inputFile" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
-                        <a href="{{route('home')}}" class="btn btn-dark">Back</a>
-
-                    </div>
-                </form>
+                    @endif
+                </div>
             </div>
-        </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="name">Food type:</label>
+                <div class="col-sm-8">
+                    <select class="form-control" name="food_type">
+                        <option value="{{\App\Http\Controllers\FoodType::RAU}}">Rau</option>
+                        <option value="{{\App\Http\Controllers\FoodType::THIT}}">Thit</option>
+                        <option>Do uong</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="name">Description</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="food_description" value="{{$food->food_description }}">
+                    @if($errors->has('food_description'))
+                        <span class="help-block">
+                                            <strong>{{$errors->first('food_description')}}</strong>
+                                        </span>
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Food Image</label>
+                <div class="col-sm-8">
+                    <input type="file" class="form-control" name="food_image">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="name">Food price:</label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" name="food_price" value="{{$food->food_price }}"
+                           placeholder="Enter price">
+                    @if($errors->has('food_price'))
+                        <span class="help-block">
+                                            <strong>{{$errors->first('food_price')}}</strong>
+                                        </span>
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="name">Food rating:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="food_rating" value="{{$food->food_rating }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary mb-2">Update</button>
+                </div>
+            </div>
+        </form>
     </div>
 @endsection

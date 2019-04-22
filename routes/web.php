@@ -33,12 +33,11 @@ Route::prefix('admin')->group(function () {
         Route::post('/changePassword', 'AdminController@changePassword')->name('admin.users.change-password');
     });
     Route::prefix('foods')->group(function () {
-        Route::get('/', 'AdminController@getAllFood')->name('admin.foods.list');
-        Route::get('/add', 'AdminController@createFood')->name('admin.foods.add');
-        Route::post('/add', 'AdminController@storeFood')->name('admin.foods.store');
-        Route::get('/{id}/edit', 'AdminController@editFood')->name('admin.foods.edit');
-        Route::post('/{id}/edit', 'AdminController@updateFood')->name('admin.foods.update');
-        Route::get('/{id}/destroy', 'AdminController@destroyFood')->name('admin.foods.destroy');
+        Route::get('/', 'FoodController@getAllFood')->name('admin.foods.list');
+        Route::get('/add', 'FoodController@createFood')->name('admin.foods.add');
+        Route::post('/add', 'FoodController@storeFood')->name('admin.foods.store');
+        Route::get('/{id}/edit', 'FoodController@editFood')->name('admin.foods.edit');
+        Route::post('/{id}/edit', 'FoodController@updateFood')->name('admin.foods.update');
+        Route::get('/{id}/destroy', 'FoodController@destroyFood')->name('admin.foods.destroy');
     });
-
 });
