@@ -25,23 +25,23 @@
             <tbody>
 @forelse($foods as $food)
     <tr>
-        <td>{{ $food['food_id'] }}</td>
-        <td>{{ $food['food_name'] }}</td>
+        <td>{{ $food->food_id }}</td>
+        <td>{{ $food->food_name }}</td>
         <td>
-            @if($food['food_type'] == \App\Http\Controllers\FoodType::RAU)
+            @if($food->food_type == \App\Http\Controllers\FoodType::RAU)
                 {{'Rau'}}
             @endif
         </td>
-        <td>{{ $food['food_description'] }}</td>
+        <td>{{ $food->food_description }}</td>
         <td>
-            <img src="{{asset('storage/ '. $food['food_image'])}}" alt="" width="50">
+            <img src="{{asset('storage/ '. $food->food_image)}}" alt="" width="50">
         </td>
-        <td>{{ $food['food_price'] }}</td>
-        <td>{{ $food['food_rating'] }}</td>
+        <td>{{ $food->food_price }}</td>
+        <td>{{ $food->food_rating }}</td>
         <td>
-            <a href="{{route('admin.foods.edit', $food['food_id'])}}" class="btn btn-primary"><i
+            <a href="{{route('admin.foods.edit', $food->food_id)}}" class="btn btn-primary"><i
                         class="far fa-edit"></i></a>
-            <a href="{{route('admin.foods.destroy',$food['food_id'])}}" class="btn btn-danger"
+            <a href="{{route('admin.foods.destroy',$food->food_id)}}" class="btn btn-danger"
                onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a>
         </td>
     </tr>

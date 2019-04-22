@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Food;
+use App\Http\Requests\AddFoodsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -16,13 +17,14 @@ class FoodController extends Controller
     public function createFood() {
         return view('admin.foods.add');
     }
-    public function storeFood(Request $request) {
+    public function storeFood(AddFoodsRequest $request) {
         $food = new Food();
-        $food->food_name = $request->input('name');
-        $food->food_type = $request->input('type');
-        $food->food_description = $request->input('description');
-        $food->food_price = $request->input('price');
-        $food->food_rating = $request->input('rating');
+
+        $food->food_name = $request->input('food_name');
+        $food->food_type = $request->input('food_type');
+        $food->food_description = $request->input('food_description');
+        $food->food_price = $request->input('food_price');
+        $food->food_rating = $request->input('food_rating');
         $file = $request->inputFile;
         if (!$request->hasFile('inputFile')){
             $food->food_image = $file;
@@ -42,14 +44,14 @@ class FoodController extends Controller
     }
 
 
-    public function updateFood(Request $request, $id)
+    public function updateFood(AddFoodsRequest $request, $id)
     {
         $food = Food::findOrFail($id);
-        $food->food_name = $request->input('name');
-        $food->food_type = $request->input('type');
-        $food->food_description = $request->input('description');
-        $food->food_price = $request->input('price');
-        $food->food_rating = $request->input('rating');
+        $food->food_name = $request->input('food_name');
+        $food->food_type = $request->input('food_type');
+        $food->food_description = $request->input('food_description');
+        $food->food_price = $request->input('food_price');
+        $food->food_rating = $request->input('food_rating');
         $file = $request->inputFile;
         if (!$request->hasFile('inputFile')) {
             $food->food_image = $file;
@@ -61,6 +63,7 @@ class FoodController extends Controller
         }
         $food->save();
         Session::flash('success', 'Đã sửa món ăn.');
+
         return redirect()->route('admin.foods.list');
     }
     public function destroyFood($id) {
