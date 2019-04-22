@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Food;
 use App\Http\Requests\FormExampleRequest;
 use App\User;
 use Illuminate\Http\Request;
@@ -36,20 +35,11 @@ class AdminController extends Controller
         $users = User::all();
         return view('admin.users.list', compact('users'));
     }
-    public function getAllFood() {
-        $foods = Food::all();
-        return view('admin.foods.list', compact('foods'));
-    }
+
     public function createUser() {
         return view('admin.users.add');
     }
     public function storeUser(Request $request) {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -57,84 +47,20 @@ class AdminController extends Controller
         $user->save();
         return redirect()->route('admin.users.list');
     }
-    public function storeAdvertisement(Request $request) {
 
-    }
     public function deleteUser($id){
         $user = User::findOrFail($id);
         $user->delete();
         Session::flash('success', 'Đã xóa khách hàng.');
         return redirect()->route('admin.users.list');
     }
-    public function createFood() {
-        return view('admin.foods.add');
-    }
-    public function storeFood(Request $request) {
-        $food = new Food();
-        $food->food_name = $request->input('name');
-        $food->food_description = $request->input('description');
-        $food->food_type = $request->input('type');
-        $food->food_cook = $request->input('cooker');
-        $food->food_price = $request->input('price');
-        $food->food_rating = $request->input('rating');
-        $food->food_status = $request->input('status');
-        $file = $request->inputFile;
-        if (!$request->hasFile('inputFile')){
-            $food->food_picture_url = $file;
-        }else{
-            $fileName = $file->getClientOriginalName();
-            $newFileName = $fileName;
-            $request->file('inputFile')->storeAs('public/images', $newFileName);
-            $food->food_picture_url = $newFileName;
-        }
-        $food->save();
-        return redirect()->route('admin.foods.list');
-    }
+
     public function editUser($id) {
         $user = User::findOrFail($id);
         return view('admin.users.update', compact('user'));
     }
-    public function editFood($id) {
-        $food = Food::findOrFail($id);
-        return view('admin.foods.edit', compact('food'));
-    }
-
-
-    public function updateFood(Request $request, $id)
-    {
-        $food = Food::findOrFail($id);
-        $food->food_name = $request->input('name');
-        $food->food_description = $request->input('description');
-        $food->food_type = $request->input('type');
-        $food->food_cook = $request->input('cooker');
-        $food->food_price = $request->input('price');
-        $food->food_rating = $request->input('rating');
-        $food->food_status = $request->input('status');
-        $file = $request->inputFile;
-        if (!$request->hasFile('inputFile')) {
-            $food->food_picture_url = $file;
-        } else {
-            $fileName = $file->getClientOriginalName();
-            $newFileName = $fileName;
-            $request->file('inputFile')->storeAs('public/images', $newFileName);
-            $food->food_picture_url = $newFileName;
-        }
-        $food->save();
-        return redirect()->route('admin.foods.list');
-    }
-    public function destroyFood($id) {
-        $food = Food::finOrFail($id);
-        $food->delete();
-        return redirect()->route('admin.foods.list');
-    }
-
 
     public function updateUser(FormExampleRequest $request, $id){
-
-        $validatedData = $request->validate([
-            'name' => 'required|min:2',
-            'email' => 'required',
-        ]);
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
