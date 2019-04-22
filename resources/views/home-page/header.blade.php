@@ -6,19 +6,22 @@
         &#160;&#160;&#160;&#160;
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <i class="fas fa-bars"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/') }}">Trang chủ <span class="sr-only">(current)</span></a>
+                <a class="nav-link fas fa-home" href="{{ url('/') }}">&#160;Trang chủ <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/') }}">Đặt bàn ngay<span class="sr-only">(current)</span></a>
+                <a class="nav-link fas fa-plus" href="{{ url('/') }}">&#160;Đặt bàn ngay<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/') }}">Danh sách món ăn<span class="sr-only">(current)</span></a>
+                <a class="nav-link fas fa-list" href="{{ url('/') }}">&#160;Danh sách món ăn<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link fas fa-phone-volume" href="{{ url('/') }}">&#160;Liên hệ<span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
