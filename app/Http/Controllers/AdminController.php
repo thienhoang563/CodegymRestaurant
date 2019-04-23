@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FormExampleRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,27 +53,43 @@ class AdminController extends Controller
             $request->file('inputFile')->storeAs('public/images', $newFileName);
             $user->image = $newFileName;
         }
+        $user->role = $request->input('role');
         $user->save();
-        Session::flash('success', 'Them moi nguoi dung thanh cong');
+        Session::flash('success', 'Created new user!');
         return redirect()->route('admin.users.list');
     }
 
     public function deleteUser($id){
         $user = User::findOrFail($id);
+        $iduserLogin = Auth::user()->id;
+        if ($user->id == 1 || $user->id == $iduserLogin){
+            Session::flash('error', 'You can not delete this account!');
+            return redirect()->route('admin.users.list');
+        }
         $user->delete();
-        Session::flash('success', 'Đã xóa khách hàng.');
+        Session::flash('success', 'User Deleted.');
         return redirect()->route('admin.users.list');
     }
 
     public function editUser($id) {
         $user = User::findOrFail($id);
+        $iduserLogin = Auth::user()->id;
+        if ($user->id == 1 || $user->id == $iduserLogin){
+            Session::flash('error', 'You can not update profile this account');
+            return redirect()->route('admin.users.list');
+        }
         return view('admin.users.update', compact('user'));
     }
 
-    public function updateUser(FormExampleRequest $request, $id){
+    public function updateUser(UpdateUserRequest $request, $id){
         $user = User::findOrFail($id);
+        $iduserLogin = Auth::user()->id;
+        if ($user->id == 1 || $user->id == $iduserLogin){
+            Session::flash('error', 'You can not update profile this account');
+            return redirect()->route('admin.users.list');
+        }
+
         $user->name = $request->input('name');
-        $user->email = $request->input('email');
         $file = $request->inputFile;
         if (!$request->hasFile('inputFile')) {
             $user->image = $file;
@@ -83,9 +99,9 @@ class AdminController extends Controller
             $request->file('inputFile')->storeAs('public/images', $newFileName);
             $user->image = $newFileName;
         }
-
+        $user->role = $request->input('role');
         $user->save();
-        Session::flash('success', 'Cap nhat thanh cong');
+        Session::flash('success', 'Update user success!');
         return redirect()->route('admin.users.list');
     }
 
@@ -105,11 +121,11 @@ class AdminController extends Controller
             return redirect()->back()->with("error", "New Password cannot be same as your confirm password. Please try again.");
         }
 
-//        $validatedData = $request->validate([
-//            'current-password' => 'required',
-//            'new-password' => 'required|string|min:6|confirmed',
-//            'new-password-confirm' => 'required|string|min:6|confirmed'
-//        ]);
+        $validatedData = $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:6|confirmed',
+            'new-password-confirm' => 'required|string|min:6|confirmed'
+        ]);
         $user = Auth::user();
         $user->password = bcrypt($request->get('new-password'));
         $user->save();

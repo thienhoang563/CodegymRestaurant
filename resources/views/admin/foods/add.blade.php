@@ -29,9 +29,7 @@
                 <div class="col-sm-8">
                     <input type="text" class="form-control" name="food_description">
                     @if($errors->has('food_description'))
-                        <span class="alert alert-danger">
                                             <strong>{{$errors->first('food_description')}}</strong>
-                                        </span>
                     @endif
                 </div>
             </div>
@@ -47,9 +45,7 @@
                 <div class="col-sm-8">
                     <input type="number" class="form-control" name="food_price">
                     @if($errors->has('food_price'))
-                        <span class="alert alert-danger">
                                             <strong>{{$errors->first('food_price')}}</strong>
-                                        </span>
                     @endif
                 </div>
             </div>

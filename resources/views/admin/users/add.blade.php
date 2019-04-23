@@ -1,17 +1,14 @@
 @extends('layouts.app')
-
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-8">
-                <div class="card-header text-center"> {{ __('REGISTER') }}</div>
-                <div class="card-body">
+@section('page-content')
+<h1>Register</h1>
+<hr>
+    <div class="col-12 col-md-12">
                     <form method="POST" action="{{Route('admin.users.store') }}">
                         @csrf
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-sm-2 col-form-label">{{ __('Name') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-sm-5">
                                 <input id="name" type="text"
                                        class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
                                        value="{{ old('name') }}" required autofocus>
@@ -26,12 +23,11 @@
 
                         <div class="form-group row">
                             <label for="email"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
+                                   class="col-sm-2 col-form-label">{{ __('E-Mail Address') }}</label>
+                            <div class="col-sm-5">
                                 <input id="email" type="email"
                                        class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
-                                       value="{{ old('email') }}" required>
+                                       placeholder="Enter the email" required>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -43,9 +39,9 @@
 
                         <div class="form-group row">
                             <label for="password"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                   class="col-sm-2 col-form-label">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-sm-5">
                                 <input id="password" type="password"
                                        class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                        name="password" required>
@@ -60,32 +56,48 @@
 
                         <div class="form-group row">
                             <label for="password-confirm"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                   class="col-sm-2 col-form-label">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-sm-5">
                                 <input id="password-confirm" type="password" class="form-control"
                                        name="password_confirmation" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputFileName"
-                                   class="col-md-4 col-form-label text-md-right">Ten File</label>
-                            <div class="col-md-6">
-                                <input type="text"
-                                       class="form-control"
-                                       id="inputFileName"
-                                       name="inputFileName">
-                            </div>
-                            <div class="col-md-6">
+                                   class="col-sm-2 col-form-label"></label>
+{{--                            <div class="col-sm-5">--}}
+{{--                                <input type="text"--}}
+{{--                                       class="form-control"--}}
+{{--                                       id="inputFileName"--}}
+{{--                                       name="inputFileName">--}}
+{{--                            </div>--}}
+                            <div class="col-sm-5">
                                 <input type="file"
                                        class="form-control-file"
                                        id="inputFile"
                                        name="inputFile">
                             </div>
                         </div>
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-sm-2 col-form-label pt-0">Role</legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="role" value="{{\App\Http\Controllers\RoleAdmin::ADMIN}}" checked>
+                                        <label class="form-check-label" for="exampleCheck1">Admin</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="role" value="{{\App\Http\Controllers\RoleAdmin::MEMBER}}">
+                                        <label class="form-check-label" for="exampleCheck1">Member</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-2"></label>
+                            <div class="col-sm-5">
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
