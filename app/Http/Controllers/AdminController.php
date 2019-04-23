@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Food;
+use App\Http\Requests\UpdateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 
@@ -28,16 +29,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('admin.dashboard');
     }
     public function getAllUser() {
         $users = User::all();
         return view('admin.users.list', compact('users'));
     }
-    public function getAllFood() {
-        $foods = Food::all();
-        return view('admin.foods.list', compact('foods'));
-    }
+
     public function createUser() {
         return view('admin.users.add');
     }
@@ -46,92 +44,64 @@ class AdminController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = $request->input('password');
-        $user->save();
-        return redirect()->route('admin.users.list');
-    }
-    public function storeAdvertisement(Request $request) {
-
-    }
-    public function deleteUser($id){
-        $user = User::findOrFail($id);
-        $user->delete();
-        Session::flash('success', 'Đã xóa khách hàng.');
-        return redirect()->route('admin.users.list');
-    }
-    public function createFood() {
-        return view('admin.foods.add');
-    }
-    public function storeFood(Request $request) {
-        $food = new Food();
-        $food->food_name = $request->input('name');
-        $food->food_description = $request->input('description');
-        $food->food_type = $request->input('type');
-        $food->food_cook = $request->input('cooker');
-        $food->food_price = $request->input('price');
-        $food->food_rating = $request->input('rating');
-        $food->food_status = $request->input('status');
-        $file = $request->inputFile;
-        if (!$request->hasFile('inputFile')){
-            $food->food_picture_url = $file;
-        }else{
-            $fileName = $file->getClientOriginalName();
-            $newFileName = $fileName;
-            $request->file('inputFile')->storeAs('public/images', $newFileName);
-            $food->food_picture_url = $newFileName;
-        }
-        $food->save();
-        return redirect()->route('admin.foods.list');
-    }
-    public function editUser($id) {
-        $user = User::findOrFail($id);
-        return view('admin.users.update', compact('user'));
-    }
-    public function editFood($id) {
-        $food = Food::findOrFail($id);
-        return view('admin.foods.edit', compact('food'));
-    }
-
-
-    public function updateFood(Request $request, $id)
-    {
-        $food = Food::findOrFail($id);
-        $food->food_name = $request->input('name');
-        $food->food_description = $request->input('description');
-        $food->food_type = $request->input('type');
-        $food->food_cook = $request->input('cooker');
-        $food->food_price = $request->input('price');
-        $food->food_rating = $request->input('rating');
-        $food->food_status = $request->input('status');
-        $file = $request->inputFile;
+        $file = $request->input('inputFile');
         if (!$request->hasFile('inputFile')) {
-            $food->food_picture_url = $file;
+            $user->image = $file;
         } else {
             $fileName = $file->getClientOriginalName();
             $newFileName = $fileName;
             $request->file('inputFile')->storeAs('public/images', $newFileName);
-            $food->food_picture_url = $newFileName;
+            $user->image = $newFileName;
         }
-        $food->save();
-        return redirect()->route('admin.foods.list');
-    }
-    public function destroyFood($id) {
-        $food = Food::finOrFail($id);
-        $food->delete();
-        return redirect()->route('admin.foods.list');
-    }
-
-
-    public function updateUser(Request $request, $id){
-
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-        ]);
-        $user = User::findOrFail($id);
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
+        $user->role = $request->input('role');
         $user->save();
-        Session::flash('success', 'Update successful');
+        Session::flash('success', 'Created new user!');
+        return redirect()->route('admin.users.list');
+    }
+
+    public function deleteUser($id){
+        $user = User::findOrFail($id);
+        $iduserLogin = Auth::user()->id;
+        if ($user->id == 1 || $user->id == $iduserLogin){
+            Session::flash('error', 'You can not delete this account!');
+            return redirect()->route('admin.users.list');
+        }
+        $user->delete();
+        Session::flash('success', 'User Deleted.');
+        return redirect()->route('admin.users.list');
+    }
+
+    public function editUser($id) {
+        $user = User::findOrFail($id);
+        $iduserLogin = Auth::user()->id;
+        if ($user->id == 1 || $user->id == $iduserLogin){
+            Session::flash('error', 'You can not update profile this account');
+            return redirect()->route('admin.users.list');
+        }
+        return view('admin.users.update', compact('user'));
+    }
+
+    public function updateUser(UpdateUserRequest $request, $id){
+        $user = User::findOrFail($id);
+        $iduserLogin = Auth::user()->id;
+        if ($user->id == 1 || $user->id == $iduserLogin){
+            Session::flash('error', 'You can not update profile this account');
+            return redirect()->route('admin.users.list');
+        }
+
+        $user->name = $request->input('name');
+        $file = $request->inputFile;
+        if (!$request->hasFile('inputFile')) {
+            $user->image = $file;
+        } else {
+            $fileName = $file->getClientOriginalName();
+            $newFileName = $fileName;
+            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $user->image = $newFileName;
+        }
+        $user->role = $request->input('role');
+        $user->save();
+        Session::flash('success', 'Update user success!');
         return redirect()->route('admin.users.list');
     }
 
@@ -147,16 +117,18 @@ class AdminController extends Controller
         if (strcmp($request->get('current-password'), $request->get('new-password')) == 0){
             return redirect()->back()->with("error", "New Password cannot be same as your current password. Please choose a different password.");
         }
+        if (strcmp($request->get('new-password-confirm'), $request->get('new-password')) !== 0){
+            return redirect()->back()->with("error", "New Password cannot be same as your confirm password. Please try again.");
+        }
 
         $validatedData = $request->validate([
             'current-password' => 'required',
             'new-password' => 'required|string|min:6|confirmed',
+            'new-password-confirm' => 'required|string|min:6|confirmed'
         ]);
-
         $user = Auth::user();
         $user->password = bcrypt($request->get('new-password'));
         $user->save();
         return redirect()->back()->with("success","Password changed successfully !");
     }
-
 }

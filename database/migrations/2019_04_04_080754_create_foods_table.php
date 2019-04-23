@@ -14,15 +14,13 @@ class CreateFoodsTable extends Migration
     public function up()
     {
         Schema::create('foods', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('food_id');
             $table->string('food_name');
-            $table->string('food_description');
             $table->string('food_type');
-            $table->string('food_cook');
-            $table->string('food_picture_url');
+            $table->string('food_description');
+            $table->string('food_image')->nullable();
             $table->float('food_price');
-            $table->integer('food_rating');
-            $table->boolean('food_status');
+            $table->string('food_rating')->nullable();
             $table->timestamps();
         });
     }
