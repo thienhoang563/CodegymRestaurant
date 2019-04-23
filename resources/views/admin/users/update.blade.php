@@ -3,7 +3,7 @@
     <div class="col-12 col-md-12">
         <h1>Edit Profile</h1>
         <hr>
-        <form action="{{route('admin.users.update',$user['id'])}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('admin.users.update',$user->id)}}" method="post" enctype="multipart/form-data">
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -18,22 +18,46 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="Enter Name" name="name" value="{{$user['name']}}" required>
+                    <input type="text" class="form-control" placeholder="Enter Name" name="name"
+                           value="{{$user['name']}}">
                 </div>
             </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-6">
-                        <input type="email" class="form-control" placeholder="Enter Name" name="email" value="{{$user['email']}}" required>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control" name="email"
+                           value="{{$user['email']}}" disabled>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Role</label>
+                <div class="col-sm-5">
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="role"
+                               value="{{ \App\Http\Controllers\RoleAdmin::ADMIN }}"
+                               @if($user->role == \App\Http\Controllers\RoleAdmin::ADMIN)
+                               checked
+                                @endif>
+                        <label class="form-check-label">Admin</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="role"
+                               value="{{\App\Http\Controllers\RoleAdmin::MEMBER}}"
+                               @if($user->role == \App\Http\Controllers\RoleAdmin::MEMBER)
+                               checked
+                                @endif>
+                        <label class="form-check-label">Member</label>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary mb-2">Update</button>
-                        <a href="{{route('home')}}" class="btn btn-dark mb-2">Back</a>
-                    </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary mb-2">Update</button>
+                    <a href="{{route('home')}}" class="btn btn-dark mb-2">Back</a>
                 </div>
+            </div>
         </form>
     </div>
 @endsection

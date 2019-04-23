@@ -67,6 +67,7 @@
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary mb-2">Update</button>
+                    <a href="{{route('admin.foods.list')}}" class="btn btn-dark mb-2">Back</a>
                 </div>
             </div>
         </form>

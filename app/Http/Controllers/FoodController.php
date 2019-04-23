@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Food;
-use App\Http\Requests\AddFoodsRequest;
+use App\Http\Requests\FoodsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -17,7 +17,7 @@ class FoodController extends Controller
     public function createFood() {
         return view('admin.foods.add');
     }
-    public function storeFood(AddFoodsRequest $request) {
+    public function storeFood(FoodsRequest $request) {
         $food = new Food();
 
         $food->food_name = $request->input('food_name');
@@ -44,7 +44,7 @@ class FoodController extends Controller
     }
 
 
-    public function updateFood(AddFoodsRequest $request, $id)
+    public function updateFood(FoodsRequest $request, $id)
     {
         $food = Food::findOrFail($id);
         $food->food_name = $request->input('food_name');
