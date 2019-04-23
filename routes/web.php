@@ -20,6 +20,9 @@ Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('home');
 Route::get('food', 'FoodController@index()')->name('index');
+Route::get('/contact', function (){
+   return view('contact-page.contact');
+});
 
 Route::get('/admin/users/list', 'AdminController@getAllUser')->name('admin.users.list');
 Route::get('/admin/users/add', 'AdminController@createUser')->name('admin.users.add');
@@ -35,4 +38,3 @@ Route::post('/admin/users/{id}/update', 'AdminController@updateUser')->name('adm
 Route::get('/admin/users/{id}/delete', 'AdminController@deleteUser')->name('admin.users.delete');
 Route::get('/admin/users/changePassword', 'AdminController@showChangePasswordForm')->name('admin.users.form');
 Route::post('/admin/users/changePassword', 'AdminController@changePassword')->name('admin.users.change-password');
-

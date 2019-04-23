@@ -7,7 +7,7 @@
     <title>{{'Restaurant'}}</title>
 
 </head>
-<body >
+<body background="{{asset('background/blur-background07.jpg')}}">
 <HEADER>
     @include('home-page.header')
 </HEADER>
