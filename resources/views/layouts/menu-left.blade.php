@@ -53,8 +53,8 @@
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Tùy chỉnh</h6>
-                <a class="collapse-item" href="utilities-color.html">Danh sách người dùng</a>
-                <a class="collapse-item" href="utilities-border.html">Thêm mới người dùng</a>
+                <a class="collapse-item" href="{{route('admin.users.list')}}">Danh sách người dùng</a>
+                <a class="collapse-item" href="{{route('admin.users.add')}}">Thêm mới người dùng</a>
 {{--                <a class="collapse-item" href="utilities-animation.html">Animations</a>--}}
 {{--                <a class="collapse-item" href="utilities-other.html">Other</a>--}}
             </div>

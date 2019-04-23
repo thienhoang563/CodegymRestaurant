@@ -32,8 +32,6 @@ class FormExampleRequest extends FormRequest
             'food_rating' => 'required|min:6',
             'food_status' => 'required|min:6',
             'food_picture_url' => 'required',
-            'current-password' => 'required',
-            'new-password' => 'required|string|min:6|confirmed',
         ];
     }
 
