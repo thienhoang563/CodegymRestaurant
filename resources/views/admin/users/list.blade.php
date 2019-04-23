@@ -32,21 +32,23 @@
                     <th scope="row">{{ $user->id }}</th>
                     <td>{{ $user->name }}</td>
                     <td>{{$user->email}}</td>
-                    <td><img src="{{asset('storage/images/'.$user->image)}}" alt="" width="100px"
-                             height="100px"></td>
+                    <td>
+                        <img src="{{asset('storage/images/'.$user->image)}}" alt="" width="100px"
+                             height="100px">
+                    </td>
                     <td>@if($user->role == \App\Http\Controllers\RoleAdmin::ADMIN)
                             {{'Admin'}}
                         @else
                             {{'Member'}}
                         @endif</td>
                     <td>
-                    @if($user->id == '1')
+                    @if($user->id == '1' || $user->id == \Illuminate\Support\Facades\Auth::user()->id)
                         <td></td>
                     @else
                         <a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-primary"><i
                                     class="far fa-edit"></i></a>
                         <a href="{{route('admin.users.delete',$user->id)}}" class="btn btn-danger"
-                           onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a>
+                           onclick="return confirm('Are you sure to delete?')"><i class="fas fa-trash-alt"></i></a>
                         </td>
                         @endif
                 </tr>

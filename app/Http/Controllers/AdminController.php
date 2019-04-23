@@ -61,6 +61,11 @@ class AdminController extends Controller
 
     public function deleteUser($id){
         $user = User::findOrFail($id);
+        $iduserLogin = Auth::user()->id;
+        if ($user->id == 1 || $user->id == $iduserLogin){
+            Session::flash('error', 'You can not delete this account!');
+            return redirect()->route('admin.users.list');
+        }
         $user->delete();
         Session::flash('success', 'User Deleted.');
         return redirect()->route('admin.users.list');
@@ -68,13 +73,23 @@ class AdminController extends Controller
 
     public function editUser($id) {
         $user = User::findOrFail($id);
+        $iduserLogin = Auth::user()->id;
+        if ($user->id == 1 || $user->id == $iduserLogin){
+            Session::flash('error', 'You can not update profile this account');
+            return redirect()->route('admin.users.list');
+        }
         return view('admin.users.update', compact('user'));
     }
 
     public function updateUser(UpdateUserRequest $request, $id){
         $user = User::findOrFail($id);
+        $iduserLogin = Auth::user()->id;
+        if ($user->id == 1 || $user->id == $iduserLogin){
+            Session::flash('error', 'You can not update profile this account');
+            return redirect()->route('admin.users.list');
+        }
+
         $user->name = $request->input('name');
-//        $user->email = $request->input('email');
         $file = $request->inputFile;
         if (!$request->hasFile('inputFile')) {
             $user->image = $file;
