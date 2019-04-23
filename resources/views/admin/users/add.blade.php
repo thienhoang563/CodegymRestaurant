@@ -55,15 +55,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm"
-                                   class="col-sm-2 col-form-label">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-sm-5">
-                                <input id="password-confirm" type="password" class="form-control"
-                                       name="password_confirmation" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="inputFileName"
                                    class="col-sm-2 col-form-label"></label>
 {{--                            <div class="col-sm-5">--}}

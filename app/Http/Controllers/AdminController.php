@@ -43,7 +43,7 @@ class AdminController extends Controller
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = bcrypt($request->input('password'));
         $file = $request->input('inputFile');
         if (!$request->hasFile('inputFile')) {
             $user->image = $file;
