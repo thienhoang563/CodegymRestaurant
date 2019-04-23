@@ -20,6 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/admin', 'AdminController@index')->name('home');
 Route::get('food', 'FoodController@index()')->name('index');
+Route::get('/contact', function (){
+   return view('contact-page.contact-page');
+});
 
 Route::prefix('admin')->group(function () {
     Route::prefix('users')->group(function () {
