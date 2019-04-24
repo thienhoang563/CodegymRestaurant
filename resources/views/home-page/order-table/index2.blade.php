@@ -1,4 +1,5 @@
 {{--@extends('home-page.header')--}}
+<body style="background-image: url('https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg')">
 <link href="{{asset('css/order-style.css')}}" rel='stylesheet' type='text/css' media="all"/>
 <h1 class="header-w3ls">Order Form</h1>
 <div class="content-w3ls">
@@ -109,3 +110,5 @@
     </div>
 </div>
 @include('home-page.footer')
+</body>
+

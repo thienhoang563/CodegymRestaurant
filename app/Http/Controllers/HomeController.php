@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Advertisement;
+use App\Food;
 use App\Http\Requests\OrderTableRequest;
 use App\Table;
 use Illuminate\Http\Request;
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
+    public function getAllFood() {
+        $foods = Food::all();
+        return view('food-page.ListFood', compact('foods'));
+    }
     public function getAllAdvertisement() {
         $advertisements = Advertisement::all();
         return view('/welcome', compact('advertisements'));

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
+use App\Table;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,12 +46,15 @@ class AdminController extends Controller
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $file = $request->input('inputFile');
-        if (!$request->hasFile('inputFile')) {
-            $user->image = $file;
-        } else {
-            $fileName = $file->getClientOriginalName();
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('images', 'public');
+            $user->image = $path;
+        }
+        else {
+            $fileName = $file;
             $newFileName = $fileName;
-            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $request->file('inputFile')->storeAs('public/image', $newFileName);
             $user->image = $newFileName;
         }
         $user->role = $request->input('role');
@@ -96,7 +100,7 @@ class AdminController extends Controller
         } else {
             $fileName = $file->getClientOriginalName();
             $newFileName = $fileName;
-            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $request->file('inputFile')->storeAs('public/image', $newFileName);
             $user->image = $newFileName;
         }
         $user->role = $request->input('role');
@@ -126,5 +130,15 @@ class AdminController extends Controller
         $user->password = bcrypt($request->get('new-password'));
         $user->save();
         return redirect()->back()->with("success","Password changed successfully !");
+    }
+    public function getAllTable() {
+        $tables = Table::all();
+        return view('admin.order-table.list', compact('tables'));
+    }
+    public function destroyTable($id){
+        $table = Table::findOrFail($id);
+        $table->delete();
+        Session::flash('success', 'Xóa bàn thành công ');
+        return redirect()->route('admin.order-table.list');
     }
 }

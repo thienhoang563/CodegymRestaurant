@@ -33,7 +33,7 @@
                     <td>{{ $user->name }}</td>
                     <td>{{$user->email}}</td>
                     <td>
-                        <img src="{{asset('storage/images/'.$user->image)}}" alt="" width="100px"
+                        <img src="{{asset('image'.$user->image)}}" alt="" width="100px"
                              height="100px">
                     </td>
                     <td>@if($user->role == \App\Http\Controllers\RoleAdmin::ADMIN)
