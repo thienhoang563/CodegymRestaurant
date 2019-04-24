@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
+use App\Table;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -129,5 +130,15 @@ class AdminController extends Controller
         $user->password = bcrypt($request->get('new-password'));
         $user->save();
         return redirect()->back()->with("success","Password changed successfully !");
+    }
+    public function getAllTable() {
+        $tables = Table::all();
+        return view('admin.order-table.list', compact('tables'));
+    }
+    public function destroyTable($id){
+        $table = Table::findOrFail($id);
+        $table->delete();
+        Session::flash('success', 'Xóa bàn thành công ');
+        return redirect()->route('admin.order-table.list');
     }
 }
