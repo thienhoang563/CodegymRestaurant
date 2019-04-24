@@ -79,7 +79,7 @@
 <div class="container-fruid">
     <div class="row">
         <div class="col-md-8">
-            <img src="http://tuanbaovannghetphcm.vn/uploads/images/Anh-minh-hoa---Cong-bo-Top-100-mon-an-dac-san-tieu-bieu-cua-Viet-Nam_1024x534.png" alt="" style="width: 100%; height: 550px">
+            <img src="https://scratchtapas.com/wp-content/uploads/2018/09/Tong-hop-cac-mon-an-ngon-tu-thit-heo-dinh-nhat-800x416.jpg" alt="" style="width: 100%; height: 550px">
         </div>
         <div class="col-md-4">
             <div class="container">
@@ -107,7 +107,7 @@
             </div>
         </div>
         <div class="col-md-8">
-            <img src="{{asset('images/dat_ban_online.jpg')}}" alt="" style="width: 100%; height: 550px">
+            <img src="{{asset('image')}}" alt="" style="width: 100%; height: 550px">
         </div>
     </div>
 </div>
