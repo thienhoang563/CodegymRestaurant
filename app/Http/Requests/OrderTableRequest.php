@@ -29,7 +29,8 @@ class OrderTableRequest extends FormRequest
             'email' =>'required|unique:users,email',
             'restaurant_branch' =>'required',
             'order_date' => 'required|date|after:today',
-            'num_of_customers' =>'required'
+            'num_of_customers' =>'required',
+            'hour'=>'required',
         ];
     }
 }
