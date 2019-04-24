@@ -17,6 +17,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::get('/order-table', 'HomeController@orderTable')->name('home.order-table');
 Route::get('/order-table', 'HomeController@orderTable')->name('home.order-table');
 Route::post('/order-table', 'HomeController@confirmTable')->name('home.confirm-table');
 
@@ -54,3 +55,6 @@ Route::prefix('admin')->group(function () {
         Route::get('/{id}/destroy', 'FoodController@destroyFood')->name('admin.foods.destroy');
     });
 });
+
+Route::get('/post','PostController@getPost')->name('post.list');
+Route::get('/show/{id}','FoodController@show')->name('food.show');
