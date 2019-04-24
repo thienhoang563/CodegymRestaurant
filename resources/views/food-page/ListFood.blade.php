@@ -16,9 +16,10 @@
             <tbody>
             @forelse($foods as $food)
                 <tr>
-                    <td>{{ $food->food_id }}</td>
-                    <td>{{ $food->food_name }}</td>
-                    <td>
+
+                    <td><a style="color: black" href="{{route('food.show', $food->food_id )}}">{{ $food->food_id }}</a></td>
+                    <td><a  style="color: black" href="{{route('food.show', $food->food_id )}}">{{ $food->food_name }}</td>
+                    <td><a  style="color: black" href="{{route('food.show', $food->food_id )}}">
                         @if($food->food_type == \App\Http\Controllers\FoodType::RAU)
                             {{'Rau'}}
                             @elseif($food->food_type == \App\Http\Controllers\FoodType::THIT)
@@ -27,16 +28,16 @@
                             {{'Đồ uống'}}
                         @endif
                     </td>
-                    <td>{{ $food->food_description }}</td>
-                    <td>
+                    <td><a  style="color: black" href="{{route('food.show', $food->food_id )}}">{{ $food->food_description }}</td>
+                    <td><a  style="color: black" href="{{route('food.show', $food->food_id )}}">
                         @if($food->food_image)
                             <img src="{{asset('storage/'. $food->food_image)}}" alt="" width="90">
                         @else
                             {{'Chưa có ảnh'}}
                         @endif
                     </td>
-                    <td>{{ $food->food_price }}</td>
-                    <td>{{ $food->food_rating }}&nbsp;<i class="far fa-star"></i></td>
+                    <td><a  style="color: black" href="{{route('food.show', $food->food_id )}}">{{ $food->food_price }}</td>
+                    <td><a  style="color: black" href="{{route('food.show', $food->food_id )}}">{{ $food->food_rating }}&nbsp;<i class="far fa-star"></i></td>
                 </tr>
 
             @empty
