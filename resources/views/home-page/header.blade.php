@@ -20,10 +20,10 @@
                 <a class="nav-link fas fa-plus" href="{{route('home.order-table') }}">&#160;Đặt bàn ngay<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link fas fa-list" href="{{ url('/') }}">&#160;Danh sách món ăn<span class="sr-only">(current)</span></a>
+                <a class="nav-link fas fa-list" href="{{ url('/food-page') }}">&#160;Danh sách món ăn<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link fas fa-phone-volume" href="{{ url('/') }}">&#160;Liên hệ<span class="sr-only">(current)</span></a>
+                <a class="nav-link fas fa-phone-volume" href="{{ url('/contact') }}">&#160;Liên hệ<span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

@@ -19,7 +19,7 @@ class CreateFoodsTable extends Migration
             $table->string('food_type');
             $table->string('food_description');
             $table->string('food_image')->nullable();
-            $table->float('food_price');
+            $table->integer('food_price');
             $table->string('food_rating')->nullable();
             $table->timestamps();
         });
