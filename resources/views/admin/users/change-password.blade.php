@@ -33,25 +33,21 @@
                 <label class="col-sm-2 col-form-label" for="new-password">New Password</label>
                 <div class="col-sm-6"><input type="password" id="new-password" class="form-control" name="new-password"
                                              required>
-                </div>
-                @if($errors->has('new-password'))
-                    <span class="help-block">
+                    @if($errors->has('new-password'))
+                        <span class="help-block">
                                                 <strong>{{$errors->first('new-password')}}</strong>
                                             </span>
-                @endif
+                    @endif
+                </div>
+
 
             </div>
             <div class="form-group{{$errors->has('new-password-confirm') ? 'has-error' : ''}} row">
                 <label class="col-sm-2 col-form-label" for="new-password-confirm">Confirm New Password</label>
                 <div class="col-sm-6">
                     <input type="password" id="new-password-confirm" class="form-control"
-                           name="new-password-confirm" required>
+                           name="new-password-confirmation" required>
                 </div>
-                @if($errors->has('new-password-confirm'))
-                    <span class="help-block">
-                                                <strong>{{$errors->first('new-password-confirm')}}</strong>
-                                            </span>
-                @endif
             </div>
 
             <div class="form-group row">

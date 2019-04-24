@@ -43,7 +43,7 @@ class AdminController extends Controller
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = bcrypt($request->input('password'));
         $file = $request->input('inputFile');
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -120,14 +120,10 @@ class AdminController extends Controller
         if (strcmp($request->get('current-password'), $request->get('new-password')) == 0){
             return redirect()->back()->with("error", "New Password cannot be same as your current password. Please choose a different password.");
         }
-        if (strcmp($request->get('new-password-confirm'), $request->get('new-password')) !== 0){
-            return redirect()->back()->with("error", "New Password cannot be same as your confirm password. Please try again.");
-        }
 
         $validatedData = $request->validate([
             'current-password' => 'required',
             'new-password' => 'required|string|min:6|confirmed',
-            'new-password-confirm' => 'required|string|min:6|confirmed'
         ]);
         $user = Auth::user();
         $user->password = bcrypt($request->get('new-password'));

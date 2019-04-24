@@ -9,7 +9,7 @@
             </p>
         @endif
             @if(Session::has('error'))
-                <p class="text-success">
+                <p class="text-dark">
                     <i class="fa fa-check" aria-hidden="true"></i>{{Session::get('error')}}
                 </p>
             @endif

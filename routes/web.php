@@ -17,9 +17,9 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/order-table', 'HomeController@orderTable')->name('home.order-table');
+Route::post('/order-table', 'HomeController@confirmTable')->name('home.confirm-table');
 
-Auth::routes();
-Route::get('/admin', 'AdminController@index')->name('home');
 Route::get('food', 'FoodController@index()')->name('index');
 Route::get('/contact', function (){
    return view('contact-page.contact-page');
@@ -27,6 +27,14 @@ Route::get('/contact', function (){
 Route::get('/food-page', 'HomeController@getAllFood')->name('food-page');
 
 Route::prefix('admin')->group(function () {
+    Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Auth\LoginController@login');
+    Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+    Route::get('/', 'AdminController@index')->name('home');
+
+
+
     Route::prefix('users')->group(function () {
         Route::get('/', 'AdminController@getAllUser')->name('admin.users.list');
         Route::get('/add', 'AdminController@createUser')->name('admin.users.add');
