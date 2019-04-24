@@ -74,4 +74,8 @@ class FoodController extends Controller
         Session::flash('success', 'Đã xóa món ăn.');
         return redirect()->route('admin.foods.list');
     }
+    public function show($id) {
+        $food = Food::find($id);
+        return view('food-page.food-detail', compact('food'));
+    }
 }

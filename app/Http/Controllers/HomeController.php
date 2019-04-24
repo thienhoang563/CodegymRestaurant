@@ -22,7 +22,7 @@ class HomeController extends Controller
         return view('/welcome', compact('advertisements'));
     }
     public function orderTable(){
-        return view('home-page.order-table.index');
+        return view('home-page.order-table.index2');
     }
     public function confirmTable(OrderTableRequest $request) {
         $table = new Table();
