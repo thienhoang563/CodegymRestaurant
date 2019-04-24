@@ -38,12 +38,12 @@
                     </td>
                     <td>{{ $food->food_price }}</td>
                     <td>{{ $food->food_rating }}</td>
-{{--                    <td>--}}
-{{--                        <a href="{{route('admin.foods.edit', $food->food_id)}}" class="btn btn-primary"><i--}}
-{{--                                    class="far fa-edit"></i></a>--}}
-{{--                        <a href="{{route('admin.foods.destroy',$food->food_id)}}" class="btn btn-danger"--}}
-{{--                           onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a>--}}
-{{--                    </td>--}}
+                    <td>
+                        <a href="{{route('admin.foods.edit', $food->food_id)}}" class="btn btn-primary"><i
+                                    class="far fa-edit"></i></a>
+                        <a href="{{route('admin.foods.destroy',$food->food_id)}}" class="btn btn-danger"
+                           onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a>
+                    </td>
                 </tr>
 
             @empty

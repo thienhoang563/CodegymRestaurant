@@ -26,9 +26,9 @@ class OrderTableRequest extends FormRequest
         return [
             'name' => 'required',
             'phone' =>'required|numeric',
-            'email' =>'required|unique',
+            'email' =>'required|unique:users,email',
             'restaurant_branch' =>'required',
-            'order_date' => 'required',
+            'order_date' => 'required|date|after:today',
             'num_of_customers' =>'required'
         ];
     }
