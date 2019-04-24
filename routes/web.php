@@ -55,3 +55,6 @@ Route::prefix('admin')->group(function () {
         Route::get('/{id}/destroy', 'FoodController@destroyFood')->name('admin.foods.destroy');
     });
 });
+
+Route::get('/post','PostController@getPost')->name('post.list');
+Route::get('/show/{id}','FoodController@show')->name('food.show');

@@ -13,6 +13,9 @@
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/order-j-form.css')}}">
     <link rel="stylesheet" href="{{asset('css/order-style.css')}}">
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbee415a59dcb24"></script>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar fixed-top menu">
