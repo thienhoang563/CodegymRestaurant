@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="{{ asset('css/header.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <nav class="navbar navbar-expand-lg navbar fixed-top menu">
     <div class="logo"><a href="{{ url('/') }}">
@@ -16,7 +17,7 @@
                 <a class="nav-link fas fa-home" href="{{ url('/') }}">&#160;Trang chủ <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link fas fa-plus" href="{{ url('/') }}">&#160;Đặt bàn ngay<span class="sr-only">(current)</span></a>
+                <a class="nav-link fas fa-plus" href="{{route('home.order-table') }}">&#160;Đặt bàn ngay<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link fas fa-list" href="{{ url('/') }}">&#160;Danh sách món ăn<span class="sr-only">(current)</span></a>

@@ -25,16 +25,17 @@ class FoodController extends Controller
         $food->food_description = $request->input('food_description');
         $food->food_price = $request->input('food_price');
         $food->food_rating = $request->input('food_rating');
-        $file = $request->inputFile;
-        if (!$request->hasFile('inputFile')){
+        $file = $request->input('inputFile');
+        if (!$request->hasFile('inputFile')) {
             $food->food_image = $file;
-        }else{
-            $fileName = $file->getClientOriginalName();
+        } else {
+            $fileName = $request->input('inputFile')->getClientOriginalName();
             $newFileName = $fileName;
             $request->file('inputFile')->storeAs('public/images', $newFileName);
             $food->food_image = $newFileName;
         }
         $food->save();
+        dd($food);
         Session::flash('success', 'Đã thêm món ăn mới.');
         return redirect()->route('admin.foods.list');
     }

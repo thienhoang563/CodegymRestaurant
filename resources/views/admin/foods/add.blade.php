@@ -29,15 +29,18 @@
                 <div class="col-sm-8">
                     <input type="text" class="form-control" name="food_description">
                     @if($errors->has('food_description'))
-                                            <strong>{{$errors->first('food_description')}}</strong>
+                        <strong>{{$errors->first('food_description')}}</strong>
                     @endif
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Food Image</label>
-                <div class="col-sm-8">
-                    <input type="file" class="form-control" name="food_image">
+                <div class="col-sm-5">
+                    <input type="file"
+                           class="form-control-file"
+                           id="inputFile"
+                           name="inputFile">
                 </div>
             </div>
             <div class="form-group row">
@@ -45,7 +48,7 @@
                 <div class="col-sm-8">
                     <input type="number" class="form-control" name="food_price">
                     @if($errors->has('food_price'))
-                                            <strong>{{$errors->first('food_price')}}</strong>
+                        <strong>{{$errors->first('food_price')}}</strong>
                     @endif
                 </div>
             </div>
