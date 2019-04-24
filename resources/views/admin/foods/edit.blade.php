@@ -12,12 +12,11 @@
                            placeholder="Enter name">
                     @if($errors->has('food_name'))
                         <span class="help-block">
-                                            <strong>{{$errors->first('food_name')}}</strong>
-                                        </span>
+                            <strong>{{$errors->first('food_name')}}</strong>
+                        </span>
                     @endif
                 </div>
             </div>
-
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="name">Food type:</label>
                 <div class="col-sm-8">
@@ -34,8 +33,8 @@
                     <input type="text" class="form-control" name="food_description" value="{{$food->food_description }}">
                     @if($errors->has('food_description'))
                         <span class="help-block">
-                                            <strong>{{$errors->first('food_description')}}</strong>
-                                        </span>
+                            <strong>{{$errors->first('food_description')}}</strong>
+                        </span>
                     @endif
                 </div>
             </div>
@@ -52,8 +51,8 @@
                            placeholder="Enter price">
                     @if($errors->has('food_price'))
                         <span class="help-block">
-                                            <strong>{{$errors->first('food_price')}}</strong>
-                                        </span>
+                            <strong>{{$errors->first('food_price')}}</strong>
+                        </span>
                     @endif
                 </div>
             </div>

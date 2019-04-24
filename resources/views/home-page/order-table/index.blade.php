@@ -73,7 +73,7 @@
                 @endif
             </div>
             <div class="col-md-2">
-                <select type="text" class="form-control" name="order_hour">
+                <select class="form-control" name="hour">
                     <option selected>Chọn Giờ</option>
                     <option value="11h">11:00</option>
                     <option value="11h30">11:30</option>
@@ -86,6 +86,11 @@
                     <option value="20h">20:00</option>
                     <option value="20h30">20:30</option>
                 </select>
+                @if($errors->has('hour'))
+                    <span class="help-block" style="color: red">
+                        <strong>{{$errors->first('hour')}}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <div class="form-group row">
