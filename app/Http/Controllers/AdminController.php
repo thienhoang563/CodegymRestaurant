@@ -45,12 +45,15 @@ class AdminController extends Controller
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $file = $request->input('inputFile');
-        if (!$request->hasFile('inputFile')) {
-            $user->image = $file;
-        } else {
-            $fileName = $file->getClientOriginalName();
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('images', 'public');
+            $user->image = $path;
+        }
+        else {
+            $fileName = $file;
             $newFileName = $fileName;
-            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $request->file('inputFile')->storeAs('public/image', $newFileName);
             $user->image = $newFileName;
         }
         $user->role = $request->input('role');
@@ -96,7 +99,7 @@ class AdminController extends Controller
         } else {
             $fileName = $file->getClientOriginalName();
             $newFileName = $fileName;
-            $request->file('inputFile')->storeAs('public/images', $newFileName);
+            $request->file('inputFile')->storeAs('public/image', $newFileName);
             $user->image = $newFileName;
         }
         $user->role = $request->input('role');

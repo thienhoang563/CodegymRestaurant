@@ -27,7 +27,7 @@ class FoodsRequest extends FormRequest
             'food_name' => 'required',
             'food_type' => 'required',
             'food_description' => 'required',
-            'food_price' => 'required|min:1|max:10000000',
+            'food_price' => 'required|min:1',
 
         ];
     }

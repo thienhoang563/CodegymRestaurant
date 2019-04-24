@@ -34,7 +34,11 @@
                     </td>
                     <td>{{ $food->food_description }}</td>
                     <td>
-                        <img src="{{asset('storage/ '. $food->food_image)}}" alt="" width="50">
+                        @if($food->food_image)
+                            <img src="{{asset('storage/'. $food->food_image)}}" alt="" width="90">
+                        @else
+                            {{'Chưa có ảnh'}}
+                        @endif
                     </td>
                     <td>{{ $food->food_price }}</td>
                     <td>{{ $food->food_rating }}</td>

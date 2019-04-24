@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,7 @@ Route::get('food', 'FoodController@index()')->name('index');
 Route::get('/contact', function (){
    return view('contact-page.contact-page');
 });
+Route::get('/food-page', 'HomeController@getAllFood')->name('food-page');
 
 Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');

@@ -45,10 +45,12 @@
             <img src=http://asyvina.net/wp-content/uploads/2013/05/thiet-ke-noi-that-nha-hang-dep2.jpg" alt="" style="width: 100%; height: 550px">
         </div>
         <div class="col-md-4">
+            <div class="container">
             <b>Nội thất cao cấp: <br/></b>
             Được thiết kế bởi chuyên gia với nguyên liệu gỗ chất lượng. Chúng tôi xin cam kết đảm bảo trải nghiệm tốt nhất cho thực khách tại nhà hàng.
             <br/>
             <a class="btn btn-lg btn-success" href="#"> XEM THÊM</a>
+            </div>
         </div>
     </div>
 </div>
@@ -58,11 +60,13 @@
 <div class="container-fruid">
     <div class="row">
         <div class="col-md-4">
+            <div class="container">
             <b>Phục vụ tận tình: <br/></b>
             Đội ngũ nhân viên lịch sự, chuyên nghiệp, được đào tạo bài bản. Chúng tôi luôn đặt khách hàng vào vị trí cao nhất
             để phục vụ thật chu đáo và đem lại sự hài lòng cho những ai tới đây.
             <br/>
             <a class="btn btn-lg btn-success" href="#"> XEM THÊM</a>
+            </div>
         </div>
         <div class="col-md-8">
             <img src="https://hotelcareers.vn/Uploads/images/kien-thuc-nganh-khach-san/mot-so-phuong-phap-dao-tao-nhan-vien-nha-hang-1.jpg" alt="" style="width: 100%; height: 550px">
@@ -75,14 +79,16 @@
 <div class="container-fruid">
     <div class="row">
         <div class="col-md-8">
-            <img src="http://tuanbaovannghetphcm.vn/uploads/images/Anh-minh-hoa---Cong-bo-Top-100-mon-an-dac-san-tieu-bieu-cua-Viet-Nam_1024x534.png" alt="" style="width: 100%; height: 550px">
+            <img src="https://scratchtapas.com/wp-content/uploads/2018/09/Tong-hop-cac-mon-an-ngon-tu-thit-heo-dinh-nhat-800x416.jpg" alt="" style="width: 100%; height: 550px">
         </div>
         <div class="col-md-4">
+            <div class="container">
             <b>Thực đơn phong phú: <br/></b>
             Nhà hàng có thực đơn lên đến 96 món ăn của đủ các vùng miền từ bắc vào nam và
             liên tục cập nhật, sẵn sàng mang đến cho khách hàng những món ăn ngon, lạ miệng, khó quên.
             <br/>
             <a class="btn btn-lg btn-success" href="#">XEM DANH SÁCH</a>
+            </div>
         </div>
     </div>
 </div>
@@ -92,14 +98,16 @@
 <div class="container-fruid">
     <div class="row">
         <div class="col-md-4">
+            <div class="container">
             <b>Đặt bàn Online: <br/></b>
             Nhà hàng đã phát triển chức năng đặt bàn Online. Quý khách hoàn toàn có thể đặt trước chỗ ngồi, món ăn và thời
             gian trước khi tới ăn. Việc đặt bàn hoàn toàn đơn giản, nhanh chóng và tiện lợi.
             <br/>
             <a class="btn btn-lg btn-success" href="#">ĐẶT BÀN LUÔN</a>
+            </div>
         </div>
         <div class="col-md-8">
-            <img src="{{asset('images/dat_ban_online.jpg')}}" alt="" style="width: 100%; height: 550px">
+            <img src="{{asset('image')}}" alt="" style="width: 100%; height: 550px">
         </div>
     </div>
 </div>
