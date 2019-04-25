@@ -1,5 +1,5 @@
 @include('home-page.header')
-<body background="{{asset('background/blur-background02.jpg')}}">
+<body background="{{asset('background/blur-background01.jpg')}}">
 <br/><br/><br/><br/><br/>
 <div class="col-md-10 col-md-offset-1 content">
 
