@@ -30,12 +30,7 @@ class FoodController extends Controller
             $path = $image->store('images', 'public');
             $food->food_image = $path;
         }
-//        else{
-//            $fileName = $file;
-//            $newFileName = $fileName;
-//            $request->file('inputFile')->storeAs('public/image', $newFileName);
-//            $food->food_image = $newFileName;
-//        }
+
         $food->save();
         Session::flash('success', 'Đã thêm món ăn mới.');
         return redirect()->route('admin.foods.list');
@@ -55,13 +50,10 @@ class FoodController extends Controller
         $food->food_price = $request->input('food_price');
         $food->food_rating = $request->input('food_rating');
         $file = $request->inputFile;
-        if (!$request->hasFile('inputFile')) {
-            $food->food_image = $file;
-        } else {
-            $fileName = $file->getClientOriginalName();
-            $newFileName = $fileName;
-            $request->file('inputFile')->storeAs('public/image', $newFileName);
-            $food->food_image = $newFileName;
+        if ($request->hasFile('food_image')) {
+            $image = $request->file('food_image');
+            $path = $image->store('images', 'public');
+            $food->food_image = $path;
         }
         $food->save();
         Session::flash('success', 'Đã sửa món ăn.');
@@ -73,5 +65,9 @@ class FoodController extends Controller
         $food->delete();
         Session::flash('success', 'Đã xóa món ăn.');
         return redirect()->route('admin.foods.list');
+    }
+    public function show($id) {
+        $food = Food::find($id);
+        return view('food-page.food-detail', compact('food'));
     }
 }
