@@ -58,7 +58,7 @@
 
                 @empty
                 <tr>
-                    <td>{{'No data!'}}</td>
+                    <td colspan="5" style="text-align: center; color: red;">{{'No data found!'}}</td>
                 </tr>
             @endforelse
         </tbody>

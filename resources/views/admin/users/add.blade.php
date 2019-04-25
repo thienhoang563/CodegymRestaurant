@@ -52,8 +52,10 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">User Image</label>
+                            <div class="col-sm-8">
+                                <input type="file" class="form-control" name="user_image">
                             <label class="col-sm-2 col-form-label">Image</label>
                             <div class="col-sm-8">
                                 <input type="file" class="form-control-file" name="image">

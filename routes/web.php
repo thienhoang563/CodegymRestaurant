@@ -20,6 +20,7 @@ Route::get('/', function () {
 //Route::get('/order-table', 'HomeController@orderTable')->name('home.order-table');
 Route::get('/order-table', 'HomeController@orderTable')->name('home.order-table');
 Route::post('/order-table', 'HomeController@confirmTable')->name('home.confirm-table');
+Route::get('/search', 'HomeController@findFood')->name('home.search');
 
 Route::get('food', 'FoodController@index()')->name('index');
 Route::get('/contact', function (){

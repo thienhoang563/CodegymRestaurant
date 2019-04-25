@@ -11,7 +11,6 @@
                 <th scope="col">Hình ảnh</th>
                 <th scope="col">Giá</th>
                 <th scope="col">Đánh giá</th>
-                <th></th>
             </tr>
             <tbody>
             @forelse($foods as $food)
@@ -41,7 +40,7 @@
 
             @empty
                 <tr>
-                    <td>{{'No data!'}}</td>
+                    <td colspan="7" style="color: red; text-align: center">{{'No data found!'}}</td>
                 </tr>
             @endforelse
             </tbody>
