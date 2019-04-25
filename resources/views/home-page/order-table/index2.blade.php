@@ -1,5 +1,9 @@
 {{--@extends('home-page.header')--}}
 <body style="background-image: url('https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg')">
+<link rel="stylesheet" href="{{asset('css/order-j-form.css')}}">
+<link rel="stylesheet" href="{{asset('css/order-style.css')}}">
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbee415a59dcb24"></script>
 <link href="{{asset('css/order-style.css')}}" rel='stylesheet' type='text/css' media="all"/>
 <h1 class="header-w3ls">Order Form</h1>
 <div class="content-w3ls">
