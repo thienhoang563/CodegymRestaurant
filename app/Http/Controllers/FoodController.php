@@ -50,6 +50,7 @@ class FoodController extends Controller
         $food->food_price = $request->input('food_price');
         $food->food_rating = $request->input('food_rating');
 //        $file = $request->inputFile;
+
         if ($request->hasFile('food_image')) {
             $image = $request->file('food_image');
             $path = $image->store('images', 'public');
