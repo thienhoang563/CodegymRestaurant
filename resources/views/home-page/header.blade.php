@@ -45,8 +45,8 @@
                 <a class="nav-link fas fa-phone-volume" href="{{ url('/contact') }}">&#160;Liên hệ<span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Tìm món ăn" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" method="get" action="{{route('home.search')}}">
+            <input class="form-control mr-sm-2" type="search" name="name_food" placeholder="Tìm món ăn" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
         </form>
     </div>

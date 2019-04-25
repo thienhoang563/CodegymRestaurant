@@ -103,7 +103,7 @@
             Nhà hàng đã phát triển chức năng đặt bàn Online. Quý khách hoàn toàn có thể đặt trước chỗ ngồi, món ăn và thời
             gian trước khi tới ăn. Việc đặt bàn hoàn toàn đơn giản, nhanh chóng và tiện lợi.
             <br/>
-            <a class="btn btn-lg btn-success" href="#">ĐẶT BÀN LUÔN</a>
+            <a class="btn btn-lg btn-success" href="{{route('home.order-table') }}">ĐẶT BÀN LUÔN</a>
             </div>
         </div>
         <div class="col-md-8">

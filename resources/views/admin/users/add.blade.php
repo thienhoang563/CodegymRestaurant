@@ -3,7 +3,7 @@
 <h1>Register</h1>
 <hr>
     <div class="col-12 col-md-12">
-                    <form method="POST" action="{{Route('admin.users.store') }}">
+                    <form method="POST" action="{{Route('admin.users.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-sm-2 col-form-label">{{ __('Name') }}</label>
@@ -53,21 +53,10 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            <label for="inputFileName"
-                                   class="col-sm-2 col-form-label"></label>
-{{--                            <div class="col-sm-5">--}}
-{{--                                <input type="text"--}}
-{{--                                       class="form-control"--}}
-{{--                                       id="inputFileName"--}}
-{{--                                       name="inputFileName">--}}
-{{--                            </div>--}}
-                            <div class="col-sm-5">
-                                <input type="file"
-                                       class="form-control-file"
-                                       id="inputFile"
-                                       name="inputFile">
+                            <label class="col-sm-2 col-form-label">User Image</label>
+                            <div class="col-sm-8">
+                                <input type="file" class="form-control" name="user_image">
                             </div>
                         </div>
                         <fieldset class="form-group">
