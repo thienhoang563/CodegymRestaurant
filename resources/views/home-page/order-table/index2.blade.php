@@ -5,6 +5,7 @@
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbee415a59dcb24"></script>
 <link href="{{asset('css/order-style.css')}}" rel='stylesheet' type='text/css' media="all"/>
+<h2 ><a style="color: white" href="{{route('welcome')}}">Back</a></h2>
 <h1 class="header-w3ls">Order Form</h1>
 <div class="content-w3ls">
     <div class="form-w3ls">

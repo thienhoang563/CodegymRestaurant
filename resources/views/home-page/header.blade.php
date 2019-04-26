@@ -11,7 +11,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbee415a59dcb24"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar fixed-top menu">
@@ -35,14 +35,16 @@
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link fas fa-list" href="{{ url('/food-page') }}">&#160;Danh sách món ăn<span class="sr-only">(current)</span></a>
+                <a class="nav-link fas fa-list" href="{{ url('/food-page') }}">&#160;Danh sách món ăn<span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link fas fa-phone-volume" href="{{ url('/contact') }}">&#160;Liên hệ<span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="{{ route('food.search') }}">
-            <input class="form-control mr-sm-2" type="search" placeholder="Tìm món ăn" aria-label="Search" name="keyWord">
+        <form class="form-inline my-2 my-lg-0" method="get" action="{{route('home.search')}}">
+            <input class="form-control mr-sm-2" type="search" name="name_food" placeholder="Tìm món ăn"
+                   aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
         </form>
     </div>
@@ -58,7 +60,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script type="application/x-javascript"> addEventListener('load', function () { setTimeout(hideURLbar, 0) }, false);
+<script type="application/x-javascript"> addEventListener('load', function () { setTimeout(hideURLbar, 0) }, false)
 
     function hideURLbar () { window.scrollTo(0, 1) } </script>
 
