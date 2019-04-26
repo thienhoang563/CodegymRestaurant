@@ -11,7 +11,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbee415a59dcb24"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar fixed-top menu" style="background-color: rgba(165, 18, 18, 0.59);">
@@ -35,7 +35,8 @@
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link fas fa-list" href="{{ url('/food-page') }}">&#160;Danh sách món ăn<span class="sr-only">(current)</span></a>
+                <a class="nav-link fas fa-list" href="{{ url('/food-page') }}">&#160;Danh sách món ăn<span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link fas fa-phone-volume" href="{{ url('/contact') }}">&#160;Liên hệ<span class="sr-only">(current)</span></a>
@@ -44,6 +45,9 @@
         <form class="form-inline my-2 my-lg-0" method="get" action="{{route('home.search')}}">
             <input class="form-control mr-sm-2" type="search" name="name_food" placeholder="Tìm món ăn" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: #fdfdfd;border: 1px solid white;">Tìm kiếm</button>
+            <input class="form-control mr-sm-2" type="search" name="name_food" placeholder="Tìm món ăn"
+                   aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
         </form>
     </div>
 </nav>

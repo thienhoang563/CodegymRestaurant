@@ -16,7 +16,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 //Route::get('/order-table', 'HomeController@orderTable')->name('home.order-table');
 Route::get('/order-table', 'HomeController@orderTable')->name('home.order-table');
 Route::post('/order-table', 'HomeController@confirmTable')->name('home.confirm-table');
@@ -59,3 +59,4 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/post','PostController@getPost')->name('post.list');
 Route::get('/show/{id}','FoodController@show')->name('food.show');
+Route::get('/search','HomeController@search')->name('food.search');
