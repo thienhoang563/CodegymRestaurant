@@ -36,10 +36,7 @@
         </a>
     </div>
 </div>
-<br/>
-<br/>
-<br/>
-<div class="container-fruid">
+<div class="container-fruid" style="padding: 30px;">
     <div class="row">
         <div class="col-md-8">
             <img src=http://asyvina.net/wp-content/uploads/2013/05/thiet-ke-noi-that-nha-hang-dep2.jpg" alt="" style="width: 100%; height: 550px">
@@ -54,10 +51,7 @@
         </div>
     </div>
 </div>
-<br/>
-<br/>
-<br/>
-<div class="container-fruid">
+<div class="container-fruid" style="padding: 30px">
     <div class="row">
         <div class="col-md-4">
             <div class="container">
@@ -73,10 +67,7 @@
         </div>
     </div>
 </div>
-<br/>
-<br/>
-<br/>
-<div class="container-fruid">
+<div class="container-fruid" style="padding: 30px">
     <div class="row">
         <div class="col-md-8">
             <img src="https://scratchtapas.com/wp-content/uploads/2018/09/Tong-hop-cac-mon-an-ngon-tu-thit-heo-dinh-nhat-800x416.jpg" alt="" style="width: 100%; height: 550px">
@@ -92,10 +83,7 @@
         </div>
     </div>
 </div>
-<br/>
-<br/>
-<br/>
-<div class="container-fruid">
+<div class="container-fruid" style="padding: 30px">
     <div class="row">
         <div class="col-md-4">
             <div class="container">
@@ -111,7 +99,4 @@
         </div>
     </div>
 </div>
-<br/>
-<br/>
-<br/>
 
