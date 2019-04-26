@@ -38,13 +38,19 @@ class HomeController extends Controller
         Session::flash('success','Ban da dat ban thanh cong. Xin cam on!');
         return redirect()->route('home.order-table');
     }
-    public function findFood(Request $request) {
-        $keyWord = $request->name_food;
-        if($keyWord != ''){
-            $foods = Food::where('food_name', 'Like', '%'.$keyWord.'%')
-                ->get();
-            return view('food-page.ListFood', compact('foods'));
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyWord');
+
+        if (!$keyword) {
+
+            return redirect()->route('food-page');
+
         }
-        return view('food-page.ListFood', compact('No data found!'));
-    }
+
+        $foods = Food::where('food_name', 'LIKE', '%' . $keyword . '%')
+
+            ->paginate(5);
+
+        return view('food-page.ListFood', compact( 'foods'));
 }

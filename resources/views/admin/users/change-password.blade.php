@@ -18,8 +18,11 @@
             <div class="form-group{{$errors->has('current-password') ? 'has-error' : ''}} row">
 
                 <label class="col-sm-2 col-form-label" for="new-password">Current Password</label>
-                <div class="col-sm-6"><input type="password" id="current-password" class="form-control"
-                                             name="current-password" required>
+                <div class="col-sm-6">
+                    <label for="current-password">
+
+                    </label><input type="password" id="current-password" class="form-control"
+                                                                 name="current-password" required>
                 </div>
                 @if($errors->has('current-password'))
                     <span class="help-block">

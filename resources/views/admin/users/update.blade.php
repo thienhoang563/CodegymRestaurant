@@ -18,15 +18,19 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="Enter Name" name="name"
-                           value="{{$user['name']}}">
+                    <label>
+                        <input type="text" class="form-control" placeholder="Enter Name" name="name"
+                               value="{{$user['name']}}">
+                    </label>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-6">
-                    <input type="email" class="form-control" name="email"
-                           value="{{$user['email']}}" disabled>
+                    <label>
+                        <input type="email" class="form-control" name="email"
+                               value="{{$user['email']}}" disabled>
+                    </label>
                 </div>
             </div>
             <div class="form-group row">
@@ -39,19 +43,23 @@
                 <label class="col-sm-2 col-form-label">Role</label>
                 <div class="col-sm-5">
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="role"
-                               value="{{ \App\Http\Controllers\RoleAdmin::ADMIN }}"
-                               @if($user->role == \App\Http\Controllers\RoleAdmin::ADMIN)
-                               checked
-                                @endif>
+                        <label>
+                            <input type="radio" class="form-check-input" name="role"
+                                   value="{{ \App\Http\Controllers\RoleAdmin::ADMIN }}"
+                                   @if($user->role == \App\Http\Controllers\RoleAdmin::ADMIN)
+                                   checked
+                                    @endif>
+                        </label>
                         <label class="form-check-label">Admin</label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="role"
-                               value="{{\App\Http\Controllers\RoleAdmin::MEMBER}}"
-                               @if($user->role == \App\Http\Controllers\RoleAdmin::MEMBER)
-                               checked
-                                @endif>
+                        <label>
+                            <input type="radio" class="form-check-input" name="role"
+                                   value="{{\App\Http\Controllers\RoleAdmin::MEMBER}}"
+                                   @if($user->role == \App\Http\Controllers\RoleAdmin::MEMBER)
+                                   checked
+                                    @endif>
+                        </label>
                         <label class="form-check-label">Member</label>
                     </div>
                 </div>
