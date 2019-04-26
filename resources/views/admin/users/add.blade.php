@@ -11,7 +11,7 @@
                             <div class="col-sm-5">
                                 <input id="name" type="text"
                                        class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
-                                       value="{{ old('name') }}" required autofocus>
+                                        required>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -22,10 +22,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email"
-                                   class="col-sm-2 col-form-label">{{ __('E-Mail Address') }}</label>
+                            <label class="col-sm-2 col-form-label">{{ __('E-Mail Address') }}</label>
                             <div class="col-sm-5">
-                                <input id="email" type="email"
+                                <input  type="email"
                                        class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
                                        placeholder="Enter the email" required>
 
@@ -42,7 +41,7 @@
                                    class="col-sm-2 col-form-label">{{ __('Password') }}</label>
 
                             <div class="col-sm-5">
-                                <input id="password" type="password"
+                                <input type="password"
                                        class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                        name="password" required>
 
@@ -53,21 +52,13 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            <label for="inputFileName"
-                                   class="col-sm-2 col-form-label"></label>
-{{--                            <div class="col-sm-5">--}}
-{{--                                <input type="text"--}}
-{{--                                       class="form-control"--}}
-{{--                                       id="inputFileName"--}}
-{{--                                       name="inputFileName">--}}
-{{--                            </div>--}}
-                            <div class="col-sm-5">
-                                <input type="file"
-                                       class="form-control-file"
-                                       id="inputFile"
-                                       name="inputFile">
+                            <label class="col-sm-2 col-form-label">User Image</label>
+                            <div class="col-sm-8">
+                                <input type="file" class="form-control" name="user_image">
+                            <label class="col-sm-2 col-form-label">Image</label>
+                            <div class="col-sm-8">
+                                <input type="file" class="form-control-file" name="image">
                             </div>
                         </div>
                         <fieldset class="form-group">

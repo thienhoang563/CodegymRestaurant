@@ -53,7 +53,4 @@ class HomeController extends Controller
             ->paginate(5);
 
         return view('food-page.ListFood', compact( 'foods'));
-
-
-    }
 }

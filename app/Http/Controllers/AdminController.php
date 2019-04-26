@@ -45,18 +45,36 @@ class AdminController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
-        $file = $request->input('inputFile');
+//        $file = $request->input('inputFile');
+//        if ($request->hasFile('image')) {
+//            $image = $request->file('image');
+//            $path = $image->store('images', 'public');
+//            $user->image = $path;
+//        }
+//        else {
+//            $fileName = $file;
+//            $newFileName = $fileName;
+//            $request->file('inputFile')->storeAs('public/image', $newFileName);
+//            $user->image = $newFileName;
+//        }
+        if ($request->hasFile('user_image')) {
+            $image = $request->file('user_image');
+            $path = $image->store('images', 'public');
+            $user->image = $path;
+        }
+
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $path = $image->store('images', 'public');
             $user->image = $path;
         }
-        else {
-            $fileName = $file;
-            $newFileName = $fileName;
-            $request->file('inputFile')->storeAs('public/image', $newFileName);
-            $user->image = $newFileName;
-        }
+
+//        else {
+//            $fileName = $file;
+//            $newFileName = $fileName;
+//            $request->file('inputFile')->storeAs('public/image', $newFileName);
+//            $user->image = $newFileName;
         $user->role = $request->input('role');
         $user->save();
         Session::flash('success', 'Created new user!');
@@ -94,14 +112,18 @@ class AdminController extends Controller
         }
 
         $user->name = $request->input('name');
-        $file = $request->inputFile;
-        if (!$request->hasFile('inputFile')) {
-            $user->image = $file;
-        } else {
-            $fileName = $file->getClientOriginalName();
-            $newFileName = $fileName;
-            $request->file('inputFile')->storeAs('public/image', $newFileName);
-            $user->image = $newFileName;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('images', 'public');
+            $user->image = $path;
+//            $file = $request->inputFile;
+//        if (!$request->hasFile('inputFile')) {
+//            $user->image = $file;
+//        } else {
+//            $fileName = $file->getClientOriginalName();
+//            $newFileName = $fileName;
+//            $request->file('inputFile')->storeAs('public/image', $newFileName);
+//            $user->image = $newFileName;
         }
         $user->role = $request->input('role');
         $user->save();

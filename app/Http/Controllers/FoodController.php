@@ -49,7 +49,8 @@ class FoodController extends Controller
         $food->food_description = $request->input('food_description');
         $food->food_price = $request->input('food_price');
         $food->food_rating = $request->input('food_rating');
-        $file = $request->inputFile;
+//        $file = $request->inputFile;
+
         if ($request->hasFile('food_image')) {
             $image = $request->file('food_image');
             $path = $image->store('images', 'public');
@@ -70,4 +71,5 @@ class FoodController extends Controller
         $food = Food::find($id);
         return view('food-page.food-detail', compact('food'));
     }
+
 }

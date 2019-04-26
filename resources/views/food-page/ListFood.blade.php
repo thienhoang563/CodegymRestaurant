@@ -41,7 +41,7 @@
 
             @empty
                 <tr>
-                    <td>{{'No data!'}}</td>
+                    <td colspan="7" style="color: red; text-align: center">{{'No data found!'}}</td>
                 </tr>
             @endforelse
         </table>

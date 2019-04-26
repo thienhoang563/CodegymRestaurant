@@ -34,8 +34,11 @@
                     <td>{{ $user->name }}</td>
                     <td>{{$user->email}}</td>
                     <td>
-                        <img src="{{asset('image'.$user->image)}}" alt="" width="100px"
-                             height="100px">
+                        @if($user->image)
+                            <img src="{{asset('storage/'. $user->image)}}" alt="" width="90">
+                        @else
+                            {{'Chưa có ảnh'}}
+                        @endif
                     </td>
                     <td>@if($user->role == \App\Http\Controllers\RoleAdmin::ADMIN)
                             {{'Admin'}}
@@ -56,7 +59,7 @@
 
                 @empty
                 <tr>
-                    <td>{{'No data!'}}</td>
+                    <td colspan="5" style="text-align: center; color: red;">{{'No data found!'}}</td>
                 </tr>
             @endforelse
         </tbody>
