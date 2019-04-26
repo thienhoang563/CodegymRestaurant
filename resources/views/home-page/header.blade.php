@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar fixed-top menu">
+<nav class="navbar navbar-expand-lg navbar fixed-top menu" style="background-color: rgba(165, 18, 18, 0.59);">
     <div class="logo"><a href="{{ url('/') }}">
             <img src="{{asset('icons/apple-icon-72x72.png')}}" alt="" width="72" height="72"></a>
         &#160;&#160;&#160;&#160;
@@ -43,7 +43,7 @@
         </ul>
         <form class="form-inline my-2 my-lg-0" method="get" action="{{route('home.search')}}">
             <input class="form-control mr-sm-2" type="search" name="name_food" placeholder="Tìm món ăn" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: #fdfdfd;border: 1px solid white;">Tìm kiếm</button>
         </form>
     </div>
 </nav>

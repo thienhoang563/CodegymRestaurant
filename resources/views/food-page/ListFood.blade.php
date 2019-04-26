@@ -1,50 +1,33 @@
-@include('home-page.header')<br/><br/><br/><br/><br/><br/>
+@include('home-page.header')
 <body background="{{asset('background/blur-background01.jpg')}}">
-<div class="col-12 col-md-12">
-        <h1>Danh sách món ăn</h1>
-        <table class="table table-striped">
-            <tr>
-                <th scope="col">STT</th>
-                <th scope="col">Tên món ăn</th>
-                <th scope="col">Loại món</th>
-                <th scope="col">Mô tả</th>
-                <th scope="col">Hình ảnh</th>
-                <th scope="col">Giá</th>
-                <th scope="col">Đánh giá</th>
-            </tr>
-            <tbody>
+<div class="container">
+    <h1 class="text-center" style="padding-top: 80px">Thực Đơn</h1>
+    <div class="container">
+        <div class="row">
             @forelse($foods as $food)
-                <tr>
-                    <td>{{ $food->food_id }}</td>
-                    <td>{{ $food->food_name }}</td>
-                    <td>
-                        @if($food->food_type == \App\Http\Controllers\FoodType::RAU)
-                            {{'Rau'}}
-                            @elseif($food->food_type == \App\Http\Controllers\FoodType::THIT)
-                            {{'Thịt'}}
+                <div class="col-12 col-md-4">
+                    <div class="card">
+                        <a style="text-decoration: none; color: black" class="image"
+                           href="{{route('food.show', $food->food_id)}}">
+                            @if($food->food_image)
+                                <img style="width: 100%;height: 250px;cursor: pointer" class=" image"
+                                     src="{{asset('storage/'. $food->food_image)}}" alt="">
                             @else
-                            {{'Đồ uống'}}
-                        @endif
-                    </td>
-                    <td>{{ $food->food_description }}</td>
-                    <td>
-                        @if($food->food_image)
-                            <img src="{{asset('storage/'. $food->food_image)}}" alt="" width="90">
-                        @else
-                            {{'Chưa có ảnh'}}
-                        @endif
-                    </td>
-                    <td>{{ $food->food_price }}</td>
-                    <td>{{ $food->food_rating }}&nbsp;<i class="far fa-star"></i></td>
-                </tr>
-
+                                {{'Chưa có ảnh'}}
+                            @endif
+                            <div class="card-body">
+                                <h5 class="card-title">Tên món: {{ $food->food_name }}</h5>
+                                <p>Mô tả: {{ $food->food_description }}</p>
+                                <span style="color: #b93026;">Giá:{{ $food->food_price }} VND</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             @empty
-                <tr>
-                    <td colspan="7" style="color: red; text-align: center">{{'No data found!'}}</td>
-                </tr>
+                <p colspan="7" style="color: red; text-align: center">{{'No data found!'}}</p>
             @endforelse
-            </tbody>
-        </table>
+        </div>
     </div>
+</div>
 </body>
 @include('home-page.footer')

@@ -40,6 +40,7 @@ class HomeController extends Controller
     }
     public function findFood(Request $request) {
         $keyWord = $request->name_food;
+
         if($keyWord != ''){
             $foods = Food::where('food_name', 'Like', '%'.$keyWord.'%')
                 ->get();
