@@ -87,7 +87,7 @@
             Nhà hàng có thực đơn lên đến 96 món ăn của đủ các vùng miền từ bắc vào nam và
             liên tục cập nhật, sẵn sàng mang đến cho khách hàng những món ăn ngon, lạ miệng, khó quên.
             <br/>
-            <a class="btn btn-lg btn-success" href="#">XEM DANH SÁCH</a>
+            <a class="btn btn-lg btn-success" href="{{ url('/food-page') }}">XEM DANH SÁCH</a>
             </div>
         </div>
     </div>
@@ -107,7 +107,7 @@
             </div>
         </div>
         <div class="col-md-8">
-            <img src="{{asset('image')}}" alt="" style="width: 100%; height: 550px">
+            <img src="{{asset('image/dat_ban_online.jpg')}}" alt="" style="width: 100%; height: 550px">
         </div>
     </div>
 </div>
