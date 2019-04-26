@@ -23,9 +23,10 @@
             </tr>
             </thead>
             <tbody>
+            <?php $soThuTu = 1; ?>
             @forelse($foods as $food)
                 <tr>
-                    <td>{{ $food->food_id }}</td>
+                    <td>{{ $soThuTu++ }}</td>
                     <td>{{ $food->food_name }}</td>
                     <td>
                         @if($food->food_type == \App\Http\Controllers\FoodType::RAU)

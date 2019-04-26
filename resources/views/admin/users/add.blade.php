@@ -3,7 +3,7 @@
 <h1>Register</h1>
 <hr>
     <div class="col-12 col-md-12">
-                    <form method="POST" action="{{Route('admin.users.store') }}">
+                    <form method="POST" action="{{Route('admin.users.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-sm-2 col-form-label">{{ __('Name') }}</label>

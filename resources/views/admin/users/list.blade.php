@@ -27,9 +27,10 @@
         </tr>
         </thead>
         <tbody>
+        <?php $soThuTu = 1; ?>
             @forelse($users as $user)
                 <tr>
-                    <th scope="row">{{ $user->id }}</th>
+                    <th scope="row">{{ $soThuTu++ }}</th>
                     <td>{{ $user->name }}</td>
                     <td>{{$user->email}}</td>
                     <td>

@@ -41,8 +41,8 @@
                 <a class="nav-link fas fa-phone-volume" href="{{ url('/contact') }}">&#160;Liên hệ<span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Tìm món ăn" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" action="{{ route('food.search') }}">
+            <input class="form-control mr-sm-2" type="search" placeholder="Tìm món ăn" aria-label="Search" name="keyWord">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
         </form>
     </div>
@@ -58,7 +58,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script type="application/x-javascript"> addEventListener('load', function () { setTimeout(hideURLbar, 0) }, false)
+<script type="application/x-javascript"> addEventListener('load', function () { setTimeout(hideURLbar, 0) }, false);
 
     function hideURLbar () { window.scrollTo(0, 1) } </script>
 

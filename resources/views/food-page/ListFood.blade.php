@@ -1,7 +1,8 @@
 @include('home-page.header')<br/><br/><br/><br/><br/><br/>
-<body background="{{asset('background/blur-background01.jpg')}}">
+<body background="{{asset('background/blur-background04.jpg')}}">
+<div class="container">
 <div class="col-12 col-md-12">
-        <h1>Danh sách món ăn</h1>
+        <h1 class="justify-center">Danh sách món ăn</h1>
         <table class="table table-striped">
             <tr>
                 <th scope="col">STT</th>
@@ -11,12 +12,11 @@
                 <th scope="col">Hình ảnh</th>
                 <th scope="col">Giá</th>
                 <th scope="col">Đánh giá</th>
-                <th></th>
             </tr>
-            <tbody>
+            <?php $soThuTu = 1; ?>
             @forelse($foods as $food)
                 <tr>
-                    <td>{{ $food->food_id }}</td>
+                    <td>{{ $soThuTu++ }}</td>
                     <td>{{ $food->food_name }}</td>
                     <td>
                         @if($food->food_type == \App\Http\Controllers\FoodType::RAU)
@@ -44,8 +44,8 @@
                     <td>{{'No data!'}}</td>
                 </tr>
             @endforelse
-            </tbody>
         </table>
     </div>
+</div>
 </body>
 @include('home-page.footer')
