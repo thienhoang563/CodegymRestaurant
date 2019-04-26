@@ -14,5 +14,6 @@
 </body>
 
 @include('home-page.back-to-top-button')
+@include('home-page.address')
 @include('home-page.footer')
 </html>
