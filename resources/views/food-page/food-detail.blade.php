@@ -1,12 +1,13 @@
 <body background="{{asset('background/blur-background01.jpg')}}">
 @include('home-page.header')
 @include('home-page.fb-chat')
+<br/><br/><br/><br/><br/>
 <div class="row">
     <div class="col-md-8 offset-2">
         <div class="card mb-3 bg-transparent" style="max-width: 720px; padding-top: 120px">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{asset('storage/'. $food->food_image)}}" class="card-img" alt="...">
+                    <img src="{{asset('storage/'. $food->food_image)}}" class="img-thumbnail" style="width: 300px" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
