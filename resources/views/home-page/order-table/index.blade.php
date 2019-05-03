@@ -73,18 +73,18 @@
                 @endif
             </div>
             <div class="col-md-2">
-                <select class="form-control" name="hour">
+                <select class="form-control" name="order_hour">
                     <option selected>Chọn Giờ</option>
-                    <option value="11h">11:00</option>
-                    <option value="11h30">11:30</option>
-                    <option value="12h">12:00</option>
-                    <option value="12h30">12:30</option>
-                    <option value="18h">18:00</option>
-                    <option value="18h30">18:30</option>
-                    <option value="19h">19:00</option>
-                    <option value="19h30">19:30</option>
-                    <option value="20h">20:00</option>
-                    <option value="20h30">20:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
                 </select>
                 @if($errors->has('hour'))
                     <span class="help-block" style="color: red">
@@ -111,7 +111,7 @@
             </div>
         </div>
         <div class="text-center"  >
-            <button type="submit" class="btn btn-success" onclick="return confirm('Xin vui lòng kiểm tra lại thông tin đặt bàn!')">Đặt bàn</button>
+            <button type="submit" class="btn btn-success" onclick="return confirm('Bạn có chắc chắn về thông tin đặt bàn không?')">Đặt bàn</button>
         </div>
 
     </form>
