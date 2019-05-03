@@ -59,4 +59,4 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/post','PostController@getPost')->name('post.list');
 Route::get('/show/{id}','FoodController@show')->name('food.show');
-Route::get('/search','HomeController@search')->name('food.search');
+Route::get('/search','HomeController@search')->name('home.search');

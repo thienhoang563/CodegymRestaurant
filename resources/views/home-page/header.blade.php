@@ -45,9 +45,6 @@
         <form class="form-inline my-2 my-lg-0" method="get" action="{{route('home.search')}}">
             <input class="form-control mr-sm-2" type="search" name="name_food" placeholder="Tìm món ăn" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: #fdfdfd;border: 1px solid white;">Tìm kiếm</button>
-            <input class="form-control mr-sm-2" type="search" name="name_food" placeholder="Tìm món ăn"
-                   aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
         </form>
     </div>
 </nav>

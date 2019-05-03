@@ -58,7 +58,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary mb-2">Add</button>
+                    <button type="submit" class="btn btn-primary mb-2" onclick="confirm('Bạn chắc chắn muốn thêm món ăn này vào danh sách!')">Add</button>
                     <a href="{{route('admin.foods.list')}}" class="btn btn-dark mb-2">Back</a>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-{{--@extends('home-page.header')--}}
+{{--a--}}
 <body style="background-image: url('https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg')">
 <link rel="stylesheet" href="{{asset('css/order-j-form.css')}}">
 <link rel="stylesheet" href="{{asset('css/order-style.css')}}">
@@ -9,7 +9,7 @@
 <h1 class="header-w3ls">Order Form</h1>
 <div class="content-w3ls">
     <div class="form-w3ls">
-        <form action="{{route('home.confirm-table')}}" method="post">
+        <form action="{{route('home.confirm-table')}}" method="post" >
             @if(\Illuminate\Support\Facades\Session::has('success'))
                 <div class="alert alert-success">{{\Illuminate\Support\Facades\Session::get('success')}}</div>
             @endif
@@ -108,12 +108,12 @@
             </div>
             <div class="w3ls-btn">
                 <div class="wthreesubmitaits">
-                    <input type="submit" name="submit" value="Đặt bàn" onclick="return confirm('Xin vui lòng kiểm tra lại thông tin đặt bàn!')">
+                    <input type="submit" value="Đặt bàn" onclick="return confirm('Xin vui lòng kiểm tra lại thông tin đặt bàn!')">
                 </div>
             </div>
         </form>
     </div>
 </div>
-@include('home-page.footer')
+{{--@include('home-page.footer')--}}
 </body>
 
