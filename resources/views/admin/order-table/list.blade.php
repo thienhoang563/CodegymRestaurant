@@ -31,9 +31,10 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php $count = 1; ?>
                 @forelse($tables as $table)
                     <tr>
-                        <th scope="row">{{ $table->id }}</th>
+                        <th scope="row">{{ $count++ }}</th>
                         <td>{{ $table->name }}</td>
                         <td>{{$table->phone}}</td>
                         <td>{{$table->email}}</td>
