@@ -43,23 +43,19 @@
                 <label class="col-sm-2 col-form-label">Role</label>
                 <div class="col-sm-5">
                     <div class="form-check">
-                        <label>
                             <input type="radio" class="form-check-input" name="role"
                                    value="{{ \App\Http\Controllers\RoleAdmin::ADMIN }}"
                                    @if($user->role == \App\Http\Controllers\RoleAdmin::ADMIN)
                                    checked
                                     @endif>
-                        </label>
                         <label class="form-check-label">Admin</label>
                     </div>
                     <div class="form-check">
-                        <label>
                             <input type="radio" class="form-check-input" name="role"
                                    value="{{\App\Http\Controllers\RoleAdmin::MEMBER}}"
                                    @if($user->role == \App\Http\Controllers\RoleAdmin::MEMBER)
                                    checked
                                     @endif>
-                        </label>
                         <label class="form-check-label">Member</label>
                     </div>
                 </div>
