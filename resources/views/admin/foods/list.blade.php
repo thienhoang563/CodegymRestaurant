@@ -58,5 +58,10 @@
             @endforelse
             </tbody>
         </table>
+        <div class="col-12">
+            <div class="pagination float-right">
+                {{ $foods->appends(request()->query()) }}
+            </div>
+        </div>
     </div>
 @endsection
