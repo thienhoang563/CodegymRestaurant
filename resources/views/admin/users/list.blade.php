@@ -47,7 +47,6 @@
                         @endif</td>
                     <td>
                     @if($user->id == '1' || $user->id == \Illuminate\Support\Facades\Auth::user()->id)
-                        <td></td>
                     @else
                         <a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-primary"><i
                                     class="far fa-edit"></i></a>
@@ -64,6 +63,11 @@
             @endforelse
         </tbody>
     </table>
+        <div class="col-12">
+            <div class="pagination float-right">
+                {{ $users->appends(request()->query()) }}
+            </div>
+        </div>
     </div>
 
 @endsection
