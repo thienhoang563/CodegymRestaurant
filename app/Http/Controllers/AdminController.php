@@ -33,7 +33,7 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
     public function getAllUser() {
-        $users = User::all();
+        $users = User::paginate(5);
         return view('admin.users.list', compact('users'));
     }
 
