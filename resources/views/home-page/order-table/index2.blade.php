@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="{{asset('css/order-style.css')}}">
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbee415a59dcb24"></script>
 <link href="{{asset('css/order-style.css')}}" rel='stylesheet' type='text/css' media="all"/>
-<h2 ><a style="color: #ff7d28" href="{{route('welcome')}}">Back</a></h2>
+<h2 ><a style="color: #ff7d28" href="{{route('welcome')}}">Quay lại</a></h2>
 <h1 class="header-w3ls">Thông tin đặt bàn</h1>
 <div class="content-w3ls">
     <div class="form-w3ls">
         <form action="{{route('home.confirm-table')}}" method="post" >
             @if(\Illuminate\Support\Facades\Session::has('success'))
-                <div class="alert alert-success">{{\Illuminate\Support\Facades\Session::get('success')}}</div>
+                <div class="alert alert-success" style="color: rgb(154,255,122)">{{\Illuminate\Support\Facades\Session::get('success')}}</div>
             @endif
             @csrf
             <div class="content-wthree1">
