@@ -17,7 +17,6 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-//Route::get('/order-table', 'HomeController@orderTable')->name('home.order-table');
 Route::get('/order-table', 'HomeController@orderTable')->name('home.order-table2');
 Route::post('/order-table', 'HomeController@confirmTable')->name('home.confirm-table');
 Route::get('/search', 'HomeController@findFood')->name('home.search');
