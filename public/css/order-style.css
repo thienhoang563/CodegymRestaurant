@@ -165,7 +165,7 @@ ul.w3-size li.white{
 	background:#fff;
 	height:50px;
 }
-input#name, input#email, input#orgn, textarea#message {
+input#name, input#email, input#orgn, textarea#message, textarea#name {
     border: none;
     color: #fff;
     text-align: justify;
@@ -173,14 +173,20 @@ input#name, input#email, input#orgn, textarea#message {
     letter-spacing: 1px;
     font-size: 15px;
     font-weight: normal;
-    background-color:rgba(141, 131, 131, 0.3);
+    background-color: rgb(141, 131, 131);
 	    margin-bottom: 16px;
+    width: 100%;
   
 }
 input#name,input#email,input#orgn {
 	height:40px;
 	padding:0 15px;
-	width:94.5%;
+	width: 100%;
+}
+textarea#name{
+    height:40px;
+    width: 100%;
+    padding-top: 15px;
 }
 select {
 	border: 1px solid #fff;
@@ -207,10 +213,10 @@ select.dropdown, input#datepicker, input#datepicker1, input#datepicker2 {
     letter-spacing: 1px;
     font-size: 15px;
     font-weight: normal;
-    background-color: rgba(0, 0, 0, 0.38);
+    background-color: rgb(0, 0, 0);
 	height: 40px;
     padding: 0 15px;
-    width: 94.5%;
+    width: 100%;
 	margin-bottom: 16px;
 }
 select, .tickets input[type="number"] {
@@ -221,7 +227,7 @@ select, .tickets input[type="number"] {
     letter-spacing: 1px;
     font-size: 15px;
     font-weight: normal;
-    background-color:rgba(141, 131, 131, 0.3);
+    background-color: rgb(141, 131, 131);
 	height: 40px;
     padding: 0 15px;
     width:100%;
@@ -458,7 +464,6 @@ p.copyright a:hover {
 /*-- responsive design --*/
 @media (max-width:1440px) {
 	input#name, input#email, input#orgn,.tickets input[type="number"] {
-    width: 94%;
 }
 
 }
