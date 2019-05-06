@@ -43,7 +43,7 @@ class HomeController extends Controller
         $table->num_of_customers = $request->num_of_customers;
         $table->desc = $request->desc;
         $table->save();
-        Session::flash('success', 'Ban da dat ban thanh cong. Xin cam on!');
+        Session::flash('success', 'Bạn đã đặt bàn thành công, cảm ơn đã sử dụng dịch vụ!');
         return redirect()->route('home.order-table2');
     }
 
