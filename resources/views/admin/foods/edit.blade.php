@@ -30,7 +30,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="name">Description</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="food_description" value="{{$food->food_description }}">
+                    <textarea class="form-control" name="food_description" cols="30" rows="5">{{$food->food_description }}</textarea>
                     @if($errors->has('food_description'))
                         <span class="help-block">
                             <strong>{{$errors->first('food_description')}}</strong>
@@ -41,7 +41,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Food Image</label>
                 <div class="col-sm-8">
-                    <input type="file" class="form-control" name="food_image">
+                    <input type="file" class="form-control-file" name="food_image">
                 </div>
             </div>
             <div class="form-group row">

@@ -11,7 +11,7 @@ class FoodController extends Controller
 {
 
     public function getAllFood() {
-        $foods = Food::all();
+        $foods = Food::paginate(5);
         return view('admin.foods.list', compact('foods'));
     }
     public function createFood() {
