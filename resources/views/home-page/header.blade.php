@@ -31,7 +31,7 @@
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link fas fa-plus" href="{{route('home.order-table2') }}">&#160;Đặt bàn ngay<span
+                <a class="nav-link fas fa-plus" href="{{route('home.order-table') }}">&#160;Đặt bàn ngay<span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
