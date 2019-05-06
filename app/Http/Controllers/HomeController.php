@@ -28,7 +28,7 @@ class HomeController extends Controller
 
     public function orderTable()
     {
-        return view('home-page.order-table.index');
+        return view('home-page.order-table.index2');
     }
 
     public function confirmTable(OrderTableRequest $request)
