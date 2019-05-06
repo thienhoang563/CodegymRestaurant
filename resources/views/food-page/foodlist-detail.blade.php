@@ -1,7 +1,7 @@
 @include('home-page.header')
 <body background="{{asset('background/blur-background01.jpg')}}">
 <div class="container">
-    <h1 class="text-center" style="padding-top: 60px">Thực Đơn</h1>
+    <h1 class="text-center" style="padding-top: 100px">Thực Đơn</h1>
     <div class="row ">
         <div class="col-sm-12 text-right">
             <span class="">{{ count($foods)}} kết quả</span>
