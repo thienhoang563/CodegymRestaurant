@@ -1,3 +1,4 @@
+<br/>
 <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 <div class="container-fruid">
     <div class="col-md-12" style="font-size: 30px">
