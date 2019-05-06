@@ -1,8 +1,7 @@
 <body background="{{asset('background/blur-background01.jpg')}}">
 @include('home-page.header')
 @include('home-page.fb-chat')
-<br/><br/><br/><br/><br/>
-<div class="row">
+<div class="row" style="padding-top: 100px">
     <div class="col-md-8 offset-2">
         <div class="card mb-3 bg-transparent" style="max-width: 720px; padding-top: 120px">
             <div class="row no-gutters">
