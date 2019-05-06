@@ -106,8 +106,10 @@
                 </div>
                 <div class="form-control">
                     <label class="header">Description:</label>
-                    <input type="text" id="name" name="desc" placeholder="Mô tả về bàn ăn"
-                           title="Yêu cầu thêm về bàn ăn" value="{{old('desc')}}">
+                    <textarea type="input" rows="4" id="name" name="desc" placeholder="Mô tả về bàn ăn"
+                              title="Yêu cầu thêm về bàn ăn" style="margin: 0 0 16px; height: 142px; width: 518px;">
+
+                    </textarea>
                 </div>
             </div>
             <div class="w3ls-btn">
@@ -118,6 +120,6 @@
         </form>
     </div>
 </div>
-{{--@include('home-page.footer')--}}
+@include('home-page.fb-chat')
 </body>
 
