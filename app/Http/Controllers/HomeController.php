@@ -44,7 +44,7 @@ class HomeController extends Controller
         $table->desc = $request->desc;
         $table->save();
         Session::flash('success', 'Ban da dat ban thanh cong. Xin cam on!');
-        return redirect()->route('home.order-table');
+        return redirect()->route('home.order-table2');
     }
 
     public function search(Request $request)

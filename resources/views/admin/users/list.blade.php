@@ -15,7 +15,9 @@
             @endif
     </div>
     <table class="table table-striped">
+        @can('role','1')
         <h5><a href="{{route('admin.users.add')}}" class="btn btn-primary">ADD</a></h5>
+        @endcan
         <thead>
         <tr>
             <th scope="col">STT</th>
@@ -46,15 +48,13 @@
                             {{'Member'}}
                         @endif</td>
                     <td>
-                    @if($user->id == '1' || $user->id == \Illuminate\Support\Facades\Auth::user()->id)
-                        <td></td>
-                    @else
+                        @can('role','1')
                         <a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-primary"><i
                                     class="far fa-edit"></i></a>
                         <a href="{{route('admin.users.delete',$user->id)}}" class="btn btn-danger"
                            onclick="return confirm('Are you sure to delete?')"><i class="fas fa-trash-alt"></i></a>
                         </td>
-                        @endif
+                        @endcan
                 </tr>
 
                 @empty
@@ -64,6 +64,11 @@
             @endforelse
         </tbody>
     </table>
+        <div class="col-12">
+            <div class="pagination float-right">
+                {{ $users->appends(request()->query()) }}
+            </div>
+        </div>
     </div>
 
 @endsection

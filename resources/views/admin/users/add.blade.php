@@ -26,7 +26,7 @@
                 <div class="col-sm-5">
                     <input type="email"
                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
-                           placeholder="Enter the email" required>
+                           placeholder="Enter the email">
 
                     @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                 <div class="col-sm-5">
                     <input type="password"
                            class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                           name="password" required>
+                           name="password">
 
                     @if ($errors->has('password'))
                         <span class="invalid-feedback" role="alert">
@@ -55,30 +55,32 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">User Image</label>
                 <div class="col-sm-5">
-                    <input type="file" class="form-control" name="user_image">
+                    <input type="file" class="form-control-file" name="user_image">
                 </div>
             </div>
-            <fieldset class="form-group row">
-                <legend class="col-sm-2 col-form-label pt-0">Role</legend>
-                <div class="col-sm-10">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label pt-0">Role</label>
+                <div class="col-sm-5">
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="role"
-                               value="{{\App\Http\Controllers\RoleAdmin::ADMIN}}" checked>
+                               value="{{\App\Http\Controllers\RoleAdmin::ADMIN}}">
                         <label class="form-check-label" for="exampleCheck1">Admin</label>
                     </div>
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="role"
-                               value="{{\App\Http\Controllers\RoleAdmin::MEMBER}}">
+                               value="{{\App\Http\Controllers\RoleAdmin::MEMBER}}" checked>
                         <label class="form-check-label" for="exampleCheck1">Member</label>
                     </div>
                 </div>
-            </fieldset>
+            </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-2"></label>
                 <div class="col-sm-5">
                     <button type="submit" class="btn btn-primary">
                         Register
                     </button>
+                    <a href="{{route('home')}}" class="btn btn-dark">Back</a>
+
                 </div>
             </div>
         </form>

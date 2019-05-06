@@ -38,6 +38,6 @@
 
 </body>
 @include('home-page.fb-chat')
-@include('home-page.back-to-top-button')
 @include('home-page.footer')
+@include('home-page.back-to-top-button')
 
