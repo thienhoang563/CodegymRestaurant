@@ -1,9 +1,5 @@
 @include('home-page.header')
-<br>
-<br>
-<br>
-<br>
-<div class="text-center">
+<div class="text-center" style="padding-top: 100px">
     <h3 style="color: firebrick">Thông tin đặt bàn</h3>
     {{'(Vui lòng điền đầy đủ thông tin)'}}
 </div>
@@ -51,9 +47,9 @@
             <div class="col-sm-10">
                 <select class="custom-select my-1 mr-sm-2" name="restaurant_branch">
                     <option selected>Vui lòng chọn một nhà hàng</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">CodeGym1</option>
+                    <option value="2">CodeGym2</option>
+                    <option value="3">CodeGym3</option>
                 </select>
                 @if($errors->has('restaurant_branch'))
                     <span class="help-block" style="color: red">
@@ -73,7 +69,7 @@
                 @endif
             </div>
             <div class="col-md-2">
-                <select class="form-control" name="hour">
+                <select class="form-control" name="order_hour">
                     <option selected>Chọn Giờ</option>
                     <option value="11h">11:00</option>
                     <option value="11h30">11:30</option>

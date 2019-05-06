@@ -4,7 +4,7 @@
     <h1 class="text-center" style="padding-top: 60px">Thực Đơn</h1>
     <div class="row ">
         <div class="col-sm-12 text-right">
-            <span class="">{{ count($foodtotal)}} kết quả</span>
+            <span class="">{{ count($foods)}} kết quả</span>
         </div>
     </div>
     <div class="row">
@@ -35,9 +35,7 @@
         {{ $foods->links() }}
     </div>
 </div>
-
 </body>
 @include('home-page.fb-chat')
 @include('home-page.back-to-top-button')
 @include('home-page.footer')
-

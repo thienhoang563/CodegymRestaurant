@@ -116,14 +116,6 @@ class AdminController extends Controller
             $image = $request->file('image');
             $path = $image->store('images', 'public');
             $user->image = $path;
-//            $file = $request->inputFile;
-//        if (!$request->hasFile('inputFile')) {
-//            $user->image = $file;
-//        } else {
-//            $fileName = $file->getClientOriginalName();
-//            $newFileName = $fileName;
-//            $request->file('inputFile')->storeAs('public/image', $newFileName);
-//            $user->image = $newFileName;
         }
         $user->role = $request->input('role');
         $user->save();
