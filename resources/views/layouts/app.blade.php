@@ -17,8 +17,6 @@
     <link href="{{asset('js/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
 
-
-
 </head>
 
 <body id="page-top">

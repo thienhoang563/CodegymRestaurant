@@ -50,7 +50,6 @@
                            onclick="return confirm('Bạn chắc chắn muốn xóa?')"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
-
             @empty
                 <tr>
                     <td colspan="9" style="color: red;text-align: center">{{'No data found!'}}</td>
