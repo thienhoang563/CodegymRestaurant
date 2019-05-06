@@ -63,12 +63,12 @@
                 <div class="col-sm-5">
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="role"
-                               value="{{\App\Http\Controllers\RoleAdmin::ADMIN}}" checked>
+                               value="{{\App\Http\Controllers\RoleAdmin::ADMIN}}">
                         <label class="form-check-label" for="exampleCheck1">Admin</label>
                     </div>
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="role"
-                               value="{{\App\Http\Controllers\RoleAdmin::MEMBER}}">
+                               value="{{\App\Http\Controllers\RoleAdmin::MEMBER}}" checked>
                         <label class="form-check-label" for="exampleCheck1">Member</label>
                     </div>
                 </div>
@@ -79,6 +79,8 @@
                     <button type="submit" class="btn btn-primary">
                         Register
                     </button>
+                    <a href="{{route('home')}}" class="btn btn-dark">Back</a>
+
                 </div>
             </div>
         </form>
