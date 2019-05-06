@@ -120,9 +120,6 @@ class AdminController extends Controller
             Session::flash('error', 'You can not update profile this account');
             return redirect()->route('admin.users.list');
         }
-
-//        $user->role = $request->input('role');
-
         return redirect()->route('admin.users.list');
     }
 

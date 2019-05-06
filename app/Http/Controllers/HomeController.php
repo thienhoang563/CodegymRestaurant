@@ -15,8 +15,9 @@ class HomeController extends Controller
 {
     public function getAllFood()
     {
-        $foods = Food::all();
-        return view('food-page.ListFood', compact('foods'));
+        $foods = Food::paginate(6);
+        $foodtotal = Food::all();
+        return view('food-page.ListFood', compact('foods', 'foodtotal'));
     }
 
     public function getAllAdvertisement()
@@ -27,7 +28,7 @@ class HomeController extends Controller
 
     public function orderTable()
     {
-        return view('home-page.order-table.index2');
+        return view('home-page.order-table.index');
     }
 
     public function confirmTable(OrderTableRequest $request)
@@ -58,6 +59,6 @@ class HomeController extends Controller
         $foods = Food::where('food_name', 'LIKE', '%' . $keyword . '%')
             ->paginate(6);
 
-        return view('food-page.ListFood', compact('foods'));
+        return view('food-page.foodlist-detail', compact('foods'));
     }
 }
