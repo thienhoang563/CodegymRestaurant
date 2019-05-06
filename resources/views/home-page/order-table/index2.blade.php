@@ -1,10 +1,10 @@
-<body style="background-image: url('https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg')">
+<body style="background-image: url('https://watermark.lovepik.com/photo/00014/1597.jpg_wh1200.jpg')">
 <link rel="stylesheet" href="{{asset('css/order-j-form.css')}}">
 <link rel="stylesheet" href="{{asset('css/order-style.css')}}">
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbee415a59dcb24"></script>
 <link href="{{asset('css/order-style.css')}}" rel='stylesheet' type='text/css' media="all"/>
-<h2 ><a style="color: white" href="{{route('welcome')}}">Back</a></h2>
-<h1 class="header-w3ls">Order Form</h1>
+<h2 ><a style="color: #ff7d28" href="{{route('welcome')}}">Back</a></h2>
+<h1 class="header-w3ls">Thông tin đặt bàn</h1>
 <div class="content-w3ls">
     <div class="form-w3ls">
         <form action="{{route('home.confirm-table')}}" method="post" >
