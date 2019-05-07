@@ -17,7 +17,7 @@ class CreateFoodsTable extends Migration
             $table->increments('food_id');
             $table->string('food_name');
             $table->string('food_type');
-            $table->string('food_description');
+            $table->longText('food_description');
             $table->string('food_image')->nullable();
             $table->integer('food_price');
             $table->string('food_rating')->nullable();

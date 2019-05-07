@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="navbar navbar-expand-lg navbar card-img-bottom  " style="background-color: rgba(165, 18, 18, 0.59);color: white">
+    <div class="navbar navbar-expand-lg navbar card-img-bottom  " style=" color: white">
         <marquee>Nhà hàng CodeGym-Mang cả thế giới về bàn ăn của bạn!</marquee>
     </div>
 </div>
