@@ -107,7 +107,7 @@
                 <div class="form-control">
                     <label class="header">Description:</label>
                     <textarea type="input" rows="4" id="name" name="desc" placeholder="Mô tả về bàn ăn"
-                              title="Yêu cầu thêm về bàn ăn" style="margin: 0 0 16px; height: 142px; width: 518px;">
+                              title="Yêu cầu thêm về bàn ăn" style="margin: 0 0 16px; height: 142px;">
 
                     </textarea>
                 </div>
