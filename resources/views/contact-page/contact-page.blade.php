@@ -1,8 +1,10 @@
 @include('home-page.header')
-<body background="{{asset('background/blur-background01.jpg')}}">
+<body background="{{asset('background/bg006.jpg')}}">
 <br/><br/><br/><br/><br/>
-<div class="col-md-10 col-md-offset-1 content">
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
     <h1>Liên hệ với chúng tôi</h1>
 
     <p>Các bạn có thể liên hệ với nhà hàng chúng tôi trực tiếp 24/7 bằng số điện thoại, email bên dưới, hoặc đến trực
@@ -22,7 +24,9 @@
     -Độ Đại Sư<br/>
     -Người Anh Em Thiện Lành<br/>
     -Hòa Đào
-
+        </div>
+    </div>
+</div>
 </div>
 <br>
 </body>
