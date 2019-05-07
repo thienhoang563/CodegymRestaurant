@@ -4,9 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{'Restaurant'}}</title>
-
+<style>
+    body{
+        background-size: contain;
+    }
+</style>
 </head>
-<body background="{{asset('background/blur-background01.jpg')}}">
+<body background="{{asset('background/bg005.jpg')}}">
 <HEADER>
     @include('home-page.header')
 </HEADER>

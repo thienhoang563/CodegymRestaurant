@@ -38,6 +38,7 @@
 
 </body>
 @include('home-page.fb-chat')
+@include('home-page.restaurant-system')
 @include('home-page.footer')
 @include('home-page.back-to-top-button')
 
