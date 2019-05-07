@@ -10,7 +10,7 @@
     <div class="row">
         @forelse($foods as $food)
             <div class="col-12 col-md-4">
-                <div class="card">
+                <div class="card food">
                     <a style="text-decoration: none; color: black" class="image"
                        href="{{route('food.show', $food->food_id)}}">
                         @if($food->food_image)
@@ -21,7 +21,7 @@
                         @endif
                         <div class="card-body">
                             <h5 class="card-title">Tên món: {{ $food->food_name }}</h5>
-                            <p>Mô tả: {{ $food->food_description }}</p>
+                            <p title="{{$food->food_description}}">Mô tả: {{str_limit($food->food_description, 20) }}</p>
                             <span style="color: #b93026;">Giá:{{ $food->food_price }} VND</span>
                         </div>
                     </a>
