@@ -20,7 +20,7 @@
                     <select class="form-control" name="food_type">
                         <option value="{{\App\Http\Controllers\FoodType::RAU}}">Rau</option>
                         <option value="{{\App\Http\Controllers\FoodType::THIT}}">Thịt</option>
-                        <option>Do uong</option>
+                        <option value="{{\App\Http\Controllers\FoodType::DOUONG}}">Đồ uống</option>
                     </select>
                 </div>
             </div>
@@ -28,7 +28,6 @@
                 <label class="col-sm-2 col-form-label" for="name">Description:</label>
                 <div class="col-sm-8">
                     <textarea name="food_description" cols="20" rows="5" class="form-control"></textarea>
-{{--                    <input type="text" class="form-control" name="">--}}
                     @if($errors->has('food_description'))
                                             <strong>{{$errors->first('food_description')}}</strong>
                     @endif

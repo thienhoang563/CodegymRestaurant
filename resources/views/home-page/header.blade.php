@@ -14,7 +14,7 @@
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbee415a59dcb24"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar fixed-top menu" style="background-color: rgba(165, 18, 18, 0.59);">
+<nav class="navbar navbar-expand-lg navbar fixed-top menu">
     <div class="logo"><a href="{{ url('/') }}">
             <img src="{{asset('icons/apple-icon-72x72.png')}}" alt="" width="72" height="72"></a>
         &#160;&#160;&#160;&#160;

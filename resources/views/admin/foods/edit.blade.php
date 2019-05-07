@@ -23,7 +23,7 @@
                     <select class="form-control" name="food_type">
                         <option value="{{\App\Http\Controllers\FoodType::RAU}}">Rau</option>
                         <option value="{{\App\Http\Controllers\FoodType::THIT}}">Thit</option>
-                        <option>Do uong</option>
+                        <option value="{{\App\Http\Controllers\FoodType::DOUONG}}">Đồ uống</option>
                     </select>
                 </div>
             </div>
