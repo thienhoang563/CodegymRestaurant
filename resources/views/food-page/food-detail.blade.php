@@ -48,7 +48,7 @@
                 </p>
                 <p class="card-text">Giá tiền: {{$food->food_price}} Việt Nam Đồng</p>
                 <p class="card-text">
-                    <small class="text-muted">Cập nhật lúc: {{$food->created_at}}</small>
+                    <small class="text-muted">Cập nhật lúc: {{$food->updated_at}}</small>
                 </p>
             </div>
         </div>
