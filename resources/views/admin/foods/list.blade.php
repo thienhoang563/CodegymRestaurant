@@ -68,5 +68,10 @@
                 {{ $foods->appends(request()->query()) }}
             </div>
         </div>
+        <style>
+            .table thead th{
+                vertical-align: top;
+            }
+        </style>
     </div>
 @endsection
