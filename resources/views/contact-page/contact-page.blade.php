@@ -1,6 +1,11 @@
 @include('home-page.header')
-<body background="{{asset('background/bg006.jpg')}}">
-<br/><br/><br/><br/><br/>
+<body background="{{asset('background/bg007.jpg')}}">
+<style>
+    body{
+        background-size: cover;
+    }
+</style>
+<br/><br/><br/><br/>
 <div class="container">
     <div class="row">
         <div class="col-md-2"></div>
@@ -28,6 +33,5 @@
     </div>
 </div>
 </div>
-<br>
 </body>
 @include('home-page.footer')

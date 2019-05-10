@@ -31,10 +31,12 @@
                     <td>
                         @if($food->food_type == \App\Http\Controllers\FoodType::RAU)
                             {{'Rau'}}
-                            @elseif($food->food_type == \App\Http\Controllers\FoodType::THIT)
-                                {{'Thịt'}}
-                            @elseif($food->food_type == \App\Http\Controllers\FoodType::DOUONG)
-                                {{'Đồ uống'}}
+                        @elseif($food->food_type == \App\Http\Controllers\FoodType::THIT)
+                            {{'Thịt'}}
+                        @elseif($food->food_type == \App\Http\Controllers\FoodType::DOUONG)
+                            {{'Đồ uống'}}
+                        @elseif($food->food_type == \App\Http\Controllers\FoodType::COM)
+                            {{'Cơm'}}
                         @endif
                     </td>
                     <td>{{ $food->food_description }}</td>

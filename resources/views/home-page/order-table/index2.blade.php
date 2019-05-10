@@ -1,9 +1,10 @@
 <body style="background-image: url('https://watermark.lovepik.com/photo/00014/1597.jpg_wh1200.jpg')">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <link rel="stylesheet" href="{{asset('css/order-j-form.css')}}">
 <link rel="stylesheet" href="{{asset('css/order-style.css')}}">
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbee415a59dcb24"></script>
 <link href="{{asset('css/order-style.css')}}" rel='stylesheet' type='text/css' media="all"/>
-<h2 ><a style="color: #ff7d28" href="{{route('welcome')}}">Quay lại</a></h2>
+<h2 ><a style="color: #ff7d28" href="{{route('welcome')}}"><i class="fas fa-hiking"></i> Quay lại</a></h2>
 <h1 class="header-w3ls">Thông tin đặt bàn</h1>
 <div class="content-w3ls">
     <div class="form-w3ls">
@@ -34,7 +35,7 @@
                 </div>
                 <div class="grid-agileits1">
                     <div class="form-control">
-                        <label class="header">Name <span>*</span></label>
+                        <label class="header">Tên của bạn <span>*</span></label>
                         <input type="text" id="name" name="name" placeholder="Tên khách hàng"
                                title="Please enter your Full Name" value="{{old('name')}}">
                         @if($errors->has('name'))
@@ -44,7 +45,7 @@
                         @endif
                     </div>
                     <div class="form-control">
-                        <label class="header">Phone :</label>
+                        <label class="header">Số điện thoại :</label>
                         <input type="text" id="name" name="phone" placeholder="Phone" title="Please enter your Phone No"
                                value="{{old('phone')}}">
                         @if($errors->has('phone'))
@@ -64,7 +65,7 @@
                         @endif
                     </div>
                     <div class="form-control">
-                        <label class="header">Order_Date: </label>
+                        <label class="header">Chọn ngày: </label>
                         <input type="date" id="name" name="order_date" placeholder="Ngày đặt bàn"
                                title="Ngày đặt bàn">
                         @if($errors->has('order_date'))
@@ -95,7 +96,7 @@
                     </div>
                 </div>
                 <div class="form-control">
-                    <label class="header">Quantity :</label>
+                    <label class="header">Số lượng người :</label>
                     <input type="text" id="name" name="num_of_customers" placeholder="Nhập số lượng khách"
                            title="Mời nhập số lượng khách" value="{{old('num_of_customers')}}">
                     @if($errors->has('num_of_customers'))
@@ -105,7 +106,7 @@
                     @endif
                 </div>
                 <div class="form-control">
-                    <label class="header">Description:</label>
+                    <label class="header">Mô tả thêm:</label>
                     <textarea type="input" rows="4" id="name" name="desc" placeholder="Mô tả về bàn ăn"
                               title="Yêu cầu thêm về bàn ăn" style="margin: 0 0 16px; height: 142px;">
 
