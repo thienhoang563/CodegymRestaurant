@@ -21,6 +21,7 @@
                         <option value="{{\App\Http\Controllers\FoodType::RAU}}">Rau</option>
                         <option value="{{\App\Http\Controllers\FoodType::THIT}}">Thịt</option>
                         <option value="{{\App\Http\Controllers\FoodType::DOUONG}}">Đồ uống</option>
+                        <option value="{{\App\Http\Controllers\FoodType::COM}}">Cơm</option>
                     </select>
                 </div>
             </div>

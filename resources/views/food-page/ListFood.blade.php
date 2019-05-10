@@ -1,12 +1,8 @@
 @include('home-page.header')
-<body background="{{asset('background/blur-background01.jpg')}}">
+<link rel="stylesheet" href="{{asset('css/list-food.css')}}">
+<body background="{{asset('background/bg006.jpg')}}">
 <div class="container">
     <h1 class="text-center" style="padding-top: 100px">Thực Đơn</h1>
-    <div class="row ">
-        <div class="col-sm-12 text-right">
-            <span class="">{{ count($foodtotal)}} kết quả</span>
-        </div>
-    </div>
     <div class="row">
         @forelse($foods as $food)
             <div class="col-12 col-md-4">
